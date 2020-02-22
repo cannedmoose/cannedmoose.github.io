@@ -143,6 +143,7 @@ var CanvasView = View.extend(/** @lends CanvasView# */{
         if (project)
             project.draw(ctx, this._matrix, this._pixelRatio);
         this._needsUpdate = false;
+        this.emit("updated");
         return true;
     }
 });

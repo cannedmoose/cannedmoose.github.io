@@ -96,6 +96,14 @@ var Project = PaperScopeItem.extend(/** @lends Project# */{
                 if (!view._requested && view._autoUpdate)
                     view.requestUpdate();
             }
+
+            this.emit(
+                "changed",
+                new Base({
+                    flags: flags,
+                    item: item
+                })
+            );
         }
         // Have project keep track of changed items so they can be iterated.
         // This can be used for example to update the SVG tree. Needs to be
@@ -859,7 +867,7 @@ var Project = PaperScopeItem.extend(/** @lends Project# */{
         }
     },
 
-    draw: function(ctx, matrix, pixelRatio) {
+    draw: function(ctx, matrix, pixelRatio, drawSelection) {
         // Increase the _updateVersion before the draw-loop. After that, items
         // that are visible will have their _updateVersion set to the new value.
         this._updateVersion++;
@@ -883,7 +891,7 @@ var Project = PaperScopeItem.extend(/** @lends Project# */{
         ctx.restore();
 
         // Draw the selection of the selected items in the project:
-        if (this._selectionCount > 0) {
+        if (this._selectionCount > 0 && drawSelection) {
             ctx.save();
             ctx.strokeWidth = 1;
             var items = this._selectionItems,

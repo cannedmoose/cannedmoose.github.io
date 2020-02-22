@@ -119,6 +119,9 @@ var View = Base.extend(Emitter, /** @lends View# */{
         // Do not set _autoUpdate on Node.js by default:
         this._autoUpdate = !paper.agent.node;
         this._needsUpdate = false;
+
+        // Whether to draw selection with view
+        this._drawSelection = true;
     },
 
     /**
@@ -1426,7 +1429,7 @@ new function() { // Injection scope for event handling on the browser
             // to only be fired if we're inside the view or if we just left it.
             // Prevent default if at least one handler was called, and none of
             // them enforces default, to prevent scrolling on touch devices.
-            if (handle && tool) {
+            if (!prevented && handle && tool) {
                 called = tool._handleMouseEvent(type, event, point, mouse)
                     || called;
             }
