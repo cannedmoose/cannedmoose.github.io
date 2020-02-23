@@ -1,5 +1,5 @@
 /*!
- * Paper.js v0.12.4-temp - The Swiss Army Knife of Vector Graphics Scripting.
+ * Paper.js v0.12.4-grafte - The Swiss Army Knife of Vector Graphics Scripting.
  * http://paperjs.org/
  *
  * Copyright (c) 2011 - 2019, Juerg Lehni & Jonathan Puckey
@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Sun Feb 23 09:45:50 2020 +1100
+ * Date: Sun Feb 23 11:19:30 2020 +1100
  *
  ***
  *
@@ -821,7 +821,7 @@ var PaperScope = Base.extend({
 		}
 	},
 
-	version: "0.12.4-temp",
+	version: "0.12.4-grafte",
 
 	getView: function() {
 		var project = this.project;
@@ -13002,6 +13002,7 @@ var View = Base.extend(Emitter, {
 	_changed: function() {
 		this._project._changed(4097);
 		this._bounds = this._decomposed = undefined;
+		this.emit("changed", new Base({}));
 	},
 
 	getElement: function() {

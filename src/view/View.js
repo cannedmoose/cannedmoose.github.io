@@ -365,6 +365,7 @@ var View = Base.extend(Emitter, /** @lends View# */{
         this._project._changed(/*#=*/Change.VIEW);
         // Force recalculation of these values next time they are requested.
         this._bounds = this._decomposed = undefined;
+        this.emit("changed", new Base({}));
     },
 
     /**
