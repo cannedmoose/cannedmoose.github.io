@@ -197,6 +197,29 @@ var View = Base.extend(Emitter, /** @lends View# */{
     },
 
     /**
+     * Control wether this view draws selection outlines.
+     * 
+     * @bean
+     * @type Boolean
+     */
+    getDrawSelection: function() {
+        return this._drawSelection;
+    },
+
+    setDrawSelection: function(drawSelection) {
+        this._drawSelection = drawSelection;
+        this.requestUpdate();
+    },
+
+    /**
+     * Forces view to update.
+     */
+    markDirty: function() {
+        this._needsUpdate = true;
+        this.draw();
+    },
+
+    /**
      * Updates the view if there are changes. Note that when using built-in
      * event hanlders for interaction, animation and load events, this method is
      * invoked for you automatically at the end.
@@ -204,6 +227,14 @@ var View = Base.extend(Emitter, /** @lends View# */{
      * @return {Boolean} {@true if the view was updated}
      */
     update: function() {
+    },
+
+    /**
+     * Raw drawing on the view element with the views matrix
+     *
+     * @param Function
+     */
+    rawDraw: function(fn) {
     },
 
     /**

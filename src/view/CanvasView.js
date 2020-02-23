@@ -13,7 +13,8 @@
 /**
  * @name CanvasView
  * @class
- * @private
+ * 
+ * @extends View
  */
 var CanvasView = View.extend(/** @lends CanvasView# */{
     _class: 'CanvasView',
@@ -22,6 +23,7 @@ var CanvasView = View.extend(/** @lends CanvasView# */{
      * Creates a view object that wraps a canvas element.
      *
      * @name CanvasView#initialize
+     * @param {Project} project the project to view
      * @param {HTMLCanvasElement} canvas the Canvas object that this view should
      *     wrap
      */
@@ -141,9 +143,13 @@ var CanvasView = View.extend(/** @lends CanvasView# */{
             size = this._viewSize;
         ctx.clearRect(0, 0, size.width + 1, size.height + 1);
         if (project)
-            project.draw(ctx, this._matrix, this._pixelRatio);
+            project.draw(ctx, this._matrix, this._pixelRatio, this._drawSelection);
         this._needsUpdate = false;
-        this.emit("updated");
+        this.emit("updated", new Base({}));
         return true;
+    },
+
+    rawDraw: function(fn) {
+        fn(this._context, this._matrix);
     }
 });

@@ -96,15 +96,15 @@ var Project = PaperScopeItem.extend(/** @lends Project# */{
                 if (!view._requested && view._autoUpdate)
                     view.requestUpdate();
             }
-
-            this.emit(
-                "changed",
-                new Base({
-                    flags: flags,
-                    item: item
-                })
-            );
         }
+
+        this.emit(
+            "changed",
+            new Base({
+                flags: flags,
+                item: item
+            })
+        );
         // Have project keep track of changed items so they can be iterated.
         // This can be used for example to update the SVG tree. Needs to be
         // activated in Project

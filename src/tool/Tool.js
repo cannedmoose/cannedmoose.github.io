@@ -56,6 +56,7 @@ var Tool = PaperScopeItem.extend(/** @lends Tool# */{
         // -1 so first event is 0:
         this._moveCount = -1;
         this._downCount = -1;
+        this._name = "";
         this.set(props);
     },
 
@@ -91,6 +92,20 @@ var Tool = PaperScopeItem.extend(/** @lends Tool# */{
                 && minDistance > this._maxDistance) {
             this._maxDistance = minDistance;
         }
+    },
+
+    /**
+     * Name of the tool.
+     *
+     * @bean
+     * @type String
+     */
+    getName: function() {
+        return this._name;
+    },
+
+    setName: function(name) {
+        this._name = name;
     },
 
     /**

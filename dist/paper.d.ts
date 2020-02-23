@@ -1,5 +1,5 @@
 /*!
- * Paper.js v0.12.4 - The Swiss Army Knife of Vector Graphics Scripting.
+ * Paper.js v0.12.4-temp - The Swiss Army Knife of Vector Graphics Scripting.
  * http://paperjs.org/
  *
  * Copyright (c) 2011 - 2019, Juerg Lehni & Jonathan Puckey
@@ -9,12 +9,48 @@
  *
  * All rights reserved.
  *
- * Date: Sun Dec 15 21:25:00 2019 +0100
+ * Date: Sun Feb 23 09:45:50 2020 +1100
  *
  * This is an auto-generated type definition.
  */
 
 declare namespace paper {
+
+    
+    class CanvasView extends View {
+
+        /** 
+         * Creates a view object that wraps a canvas element.
+         * 
+         * @param project - the project to view
+         * @param canvas - the Canvas object that this view should
+         *     wrap
+         */
+        constructor(project: Project, canvas: HTMLCanvasElement)
+
+        /** 
+         * Creates a view object that wraps a newly created canvas element.
+         * 
+         * @param size - the size of the canvas to be created
+         */
+        constructor(size: Size)
+
+        /** 
+         * Converts the provide size in any of the units allowed in the browser to
+         * pixels.
+         */
+        getPixelSize(size: any): void
+
+        /** 
+         * Updates the view if there are changes. Note that when using built-in
+         * event handlers for interaction, animation and load events, this method is
+         * invoked for you automatically at the end.
+         * 
+         * @return true if the view was updated
+         */
+        update(): boolean
+
+    }
 
     /** 
      * All properties and functions that expect color values in the form
@@ -3253,6 +3289,7 @@ declare namespace paper {
          */
         tools: Tool[]
 
+        CanvasView: typeof CanvasView
         Color: typeof Color
         CompoundPath: typeof CompoundPath
         Curve: typeof Curve
@@ -6626,6 +6663,11 @@ declare namespace paper {
         minDistance: number
 
         /** 
+         * Name of the tool.
+         */
+        name: string
+
+        /** 
          * The maximum distance the mouse has to drag before firing the onMouseDrag
          * event, since the last onMouseDrag event.
          */
@@ -6906,6 +6948,11 @@ declare namespace paper {
         autoUpdate: boolean
 
         /** 
+         * Control wether this view draws selection outlines.
+         */
+        drawSelection: boolean
+
+        /** 
          * The underlying native element.
          */
         readonly element: HTMLCanvasElement
@@ -7090,20 +7137,33 @@ declare namespace paper {
 
 
         /** 
-         * Shears the view by the given values from its center point, or optionally
+         * Shears the view by the given value from its center point, or optionally
          * by a supplied point.
          * 
-         * @see Matrix#shear(hor, ver[, center])
+         * @see Matrix#shear(shear[, center])
          * 
-         * @param hor - the horizontal shear factor
-         * @param ver - the vertical shear factor
+         * @param shear - the horziontal and vertical shear factors as a point
          */
-        shear(hor: number, ver: number, center?: Point): void
+        shear(shear: Point, center?: Point): void
 
         /** 
          * Removes this view from the project and frees the associated element.
          */
         remove(): void
+
+        /** 
+         * Updates the view if there are changes. Note that when using built-in
+         * event hanlders for interaction, animation and load events, this method is
+         * invoked for you automatically at the end.
+         * 
+         * @return true if the view was updated
+         */
+        update(): boolean
+
+        /** 
+         * Raw drawing on the view element with the views matrix
+         */
+        rawDraw(Function: any): void
 
         /** 
          * Requests an update of the view if there are changes through the browser's
@@ -7176,23 +7236,20 @@ declare namespace paper {
         scale(hor: number, ver: number, center?: Point): void
 
         /** 
-         * Shears the view by the given value from its center point, or optionally
-         * by a supplied point.
-         * 
-         * @see Matrix#shear(shear[, center])
-         * 
-         * @param shear - the horziontal and vertical shear factors as a point
+         * Forces view to update.
          */
-        shear(shear: Point, center?: Point): void
+        markDirty(): void
 
         /** 
-         * Updates the view if there are changes. Note that when using built-in
-         * event hanlders for interaction, animation and load events, this method is
-         * invoked for you automatically at the end.
+         * Shears the view by the given values from its center point, or optionally
+         * by a supplied point.
          * 
-         * @return true if the view was updated
+         * @see Matrix#shear(hor, ver[, center])
+         * 
+         * @param hor - the horizontal shear factor
+         * @param ver - the vertical shear factor
          */
-        update(): boolean
+        shear(hor: number, ver: number, center?: Point): void
 
         /** 
          * Skews the view by the given angles from its center point, or optionally
