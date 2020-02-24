@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Sun Feb 23 11:19:30 2020 +1100
+ * Date: Mon Feb 24 10:10:00 2020 +1100
  *
  ***
  *
@@ -3247,10 +3247,10 @@ new function() {
 		var props = {},
 			that = this;
 
-		function serialize(fields) {
+		function serialize(fields, alwaysWrite) {
 			for (var key in fields) {
 				var value = that[key];
-				if (!Base.equals(value, key === 'leading'
+				if (!!alwaysWrite || !Base.equals(value, key === 'leading'
 						? fields.fontSize * 1.2 : fields[key])) {
 					props[key] = Base.serialize(value, options,
 							key !== 'data', dictionary);
@@ -3260,7 +3260,7 @@ new function() {
 
 		serialize(this._serializeFields);
 		if (!(this instanceof Group))
-			serialize(this._style._defaults);
+			serialize(this._style._defaults, true);
 		return [ this._class, props ];
 	},
 

@@ -175,14 +175,14 @@ new function() { // Injection scope for various item event handlers
         var props = {},
             that = this;
 
-        function serialize(fields) {
+        function serialize(fields, alwaysWrite) {
             for (var key in fields) {
                 // value is the default value, only serialize if the current
                 // value is different from it.
                 var value = that[key];
                 // Style#leading is a special case, as its default value is
                 // dependent on the fontSize. Handle this here separately.
-                if (!Base.equals(value, key === 'leading'
+                if (!!alwaysWrite || !Base.equals(value, key === 'leading'
                         ? fields.fontSize * 1.2 : fields[key])) {
                     props[key] = Base.serialize(value, options,
                             // Do not use compact mode for data
@@ -197,7 +197,7 @@ new function() { // Injection scope for various item event handlers
         // Do not serialize styles on Groups and Layers, since they just unify
         // their children's own styles.
         if (!(this instanceof Group))
-            serialize(this._style._defaults);
+            serialize(this._style._defaults, true);
         // There is no compact form for Item serialization, we always keep the
         // class.
         return [ this._class, props ];
