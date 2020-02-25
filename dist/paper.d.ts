@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Mon Feb 24 10:10:00 2020 +1100
+ * Date: Mon Feb 24 15:00:03 2020 +1100
  *
  * This is an auto-generated type definition.
  */
@@ -1894,7 +1894,7 @@ declare namespace paper {
          * @return a hit result object describing what exactly was hit
          *     or `null` if nothing was hit
          */
-        hitTest(point: Point, options?: object): HitResult
+        hitTest(point: Point, options?: {tolerance?:Number,class?:Function,match?:Function,fill?:Boolean,stroke?:Boolean,segments?:Boolean,curves?:Boolean,handles?:Boolean,ends?:Boolean,position?:Boolean,center?:Boolean,bounds?:Boolean,guides?:Boolean,selected?:Boolean}): HitResult
 
         /** 
          * Performs a hit-test on the item and its children (if it is a {@link
@@ -1906,13 +1906,44 @@ declare namespace paper {
          * 
          * @see #hitTest(point[, options]);
          * 
+         * @option [options.tolerance={@link PaperScope#settings}.hitTolerance]
+         *     {Number} the tolerance of the hit-test
+         * @option options.class {Function} only hit-test against a specific item
+         *     class, or any of its sub-classes, by providing the constructor
+         *     function against which an `instanceof` check is performed:
+         *     {@values  Group, Layer, Path, CompoundPath, Shape, Raster,
+         *     SymbolItem, PointText, ...}
+         * @option options.match {Function} a match function to be called for each
+         *     found hit result: Return `true` to return the result, `false` to keep
+         *     searching
+         * @option [options.fill=true] {Boolean} hit-test the fill of items
+         * @option [options.stroke=true] {Boolean} hit-test the stroke of path
+         *     items, taking into account the setting of stroke color and width
+         * @option [options.segments=true] {Boolean} hit-test for {@link
+         *     Segment#point} of {@link Path} items
+         * @option options.curves {Boolean} hit-test the curves of path items,
+         *     without taking the stroke color or width into account
+         * @option options.handles {Boolean} hit-test for the handles ({@link
+         *     Segment#handleIn} / {@link Segment#handleOut}) of path segments.
+         * @option options.ends {Boolean} only hit-test for the first or last
+         *     segment points of open path items
+         * @option options.position {Boolean} hit-test the {@link Item#position} of
+         *     of items, which depends on the setting of {@link Item#pivot}
+         * @option options.center {Boolean} hit-test the {@link Rectangle#center} of
+         *     the bounding rectangle of items ({@link Item#bounds})
+         * @option options.bounds {Boolean} hit-test the corners and side-centers of
+         *     the bounding rectangle of items ({@link Item#bounds})
+         * @option options.guides {Boolean} hit-test items that have {@link
+         *     Item#guide} set to `true`
+         * @option options.selected {Boolean} only hit selected items
+         * 
          * @param point - the point where the hit-test should be performed
          *     (in global coordinates system).
          * 
          * @return hit result objects for all hits, describing what
          *     exactly was hit or `null` if nothing was hit
          */
-        hitTestAll(point: Point, options?: object): HitResult[]
+        hitTestAll(point: Point, options?: {tolerance?:Number,class?:Function,match?:Function,fill?:Boolean,stroke?:Boolean,segments?:Boolean,curves?:Boolean,handles?:Boolean,ends?:Boolean,position?:Boolean,center?:Boolean,bounds?:Boolean,guides?:Boolean,selected?:Boolean}): HitResult[]
 
         /** 
          * Checks whether the item matches the criteria described by the given
@@ -1924,11 +1955,24 @@ declare namespace paper {
          * 
          * @see #getItems(options)
          * 
+         * @option [options.recursive=true] {Boolean} whether to loop recursively
+         *     through all children, or stop at the current level
+         * @option options.match {Function} a match function to be called for each
+         *     item, allowing the definition of more flexible item checks that are
+         *     not bound to properties. If no other match properties are defined,
+         *     this function can also be passed instead of the `match` object
+         * @option options.class {Function} the constructor function of the item
+         *     type to match against
+         * @option options.inside {Rectangle} the rectangle in which the items need
+         *     to be fully contained
+         * @option options.overlapping {Rectangle} the rectangle with which the
+         *     items need to at least partly overlap
+         * 
          * @param options - the criteria to match against
          * 
          * @return true if the item matches all the criteria
          */
-        matches(options: object | Function): boolean
+        matches(options: {recursive?:Boolean,match?:Function,class?:Function,inside?:Rectangle,overlapping?:Rectangle} | Function): boolean
 
         /** 
          * Checks whether the item matches the given criteria. Extended matching is
@@ -1985,7 +2029,7 @@ declare namespace paper {
          * 
          * @return the list of matching descendant items
          */
-        getItems(options: object | Function): Item[]
+        getItems(options: {recursive?:Boolean,match?:Function,class?:Function,inside?:Rectangle,overlapping?:Rectangle} | Function): Item[]
 
         /** 
          * Fetch the first descendant (child or child of child) of this item
@@ -2000,11 +2044,24 @@ declare namespace paper {
          * 
          * @see #getItems(match)
          * 
-         * @param match - the criteria to match against
+         * @option [options.recursive=true] {Boolean} whether to loop recursively
+         *     through all children, or stop at the current level
+         * @option options.match {Function} a match function to be called for each
+         *     item, allowing the definition of more flexible item checks that are
+         *     not bound to properties. If no other match properties are defined,
+         *     this function can also be passed instead of the `options` object
+         * @option options.class {Function} the constructor function of the item type
+         *     to match against
+         * @option options.inside {Rectangle} the rectangle in which the items need to
+         *     be fully contained
+         * @option options.overlapping {Rectangle} the rectangle with which the items
+         *     need to at least partly overlap
+         * 
+         * @param options - the criteria to match against
          * 
          * @return the first descendant item matching the given criteria
          */
-        getItem(match: object | Function): Item
+        getItem(options: {recursive?:Boolean,match?:Function,class?:Function,inside?:Rectangle,overlapping?:Rectangle} | Function): Item
 
         /** 
          * Exports (serializes) the item with its content and child items to a JSON
@@ -2019,7 +2076,7 @@ declare namespace paper {
          * 
          * @return the exported JSON data
          */
-        exportJSON(options?: object): string
+        exportJSON(options?: {asString?:Boolean,precision?:Number}): string
 
         /** 
          * Imports (deserializes) the stored JSON data into this item. If the data
@@ -2059,7 +2116,7 @@ declare namespace paper {
          * @return the item converted to an SVG node or a
          * `String` depending on `option.asString` value
          */
-        exportSVG(options?: object): SVGElement | string
+        exportSVG(options?: {bounds?:String | Rectangle,matrix?:Matrix,asString?:Boolean,precision?:Number,matchShapes?:Boolean,embedImages?:Boolean}): SVGElement | string
 
         /** 
          * Converts the provided SVG content into Paper.js items and adds them to
@@ -2089,7 +2146,7 @@ declare namespace paper {
          * @return the newly created Paper.js item containing the converted
          *     SVG content
          */
-        importSVG(svg: SVGElement | string, options?: object): Item
+        importSVG(svg: SVGElement | string, options?: {expandShapes?:Boolean,onLoad?:Function,onError?:Function,insert?:Boolean,applyMatrix?:Boolean}): Item
 
         /** 
          * Imports the provided external SVG file, converts it into Paper.js items
@@ -2210,7 +2267,7 @@ declare namespace paper {
          * 
          * @return the reduced item
          */
-        reduce(options: any): Item
+        reduce(options: object): Item
 
         /** 
          * Removes the item and all its children from the project. The item is not
@@ -2289,15 +2346,15 @@ declare namespace paper {
          * Clones the item within the same project and places the copy above the
          * item.
          * 
-         * @option [insert=true] specifies whether the copy should be
+         * @option [options.insert=true] {Boolean} specifies whether the copy should be
          *     inserted into the scene graph. When set to `true`, it is inserted
          *     above the original
-         * @option [deep=true] specifies whether the item's children should also be
+         * @option [options.deep=true] {Boolean} specifies whether the item's children should also be
          *     cloned
          * 
          * @return the newly cloned item
          */
-        clone(options?: object): Item
+        clone(options?: {insert?:Boolean,deep?:Boolean}): Item
 
         /** 
          * Checks whether the item and all its parents are inserted into scene graph
@@ -2587,16 +2644,16 @@ declare namespace paper {
          * Removes the item when the events specified in the passed options object
          * occur.
          * 
-         * @option options.move {Boolean) remove the item when the next {@link
-         *     Tool#onMouseMove} event is fired.
-         * @option options.drag {Boolena) remove the item when the next {@link
-         *     Tool#onMouseDrag} event is fired.
-         * @option options.down {Boolean) remove the item when the next {@link
-         *     Tool#onMouseDown} event is fired.
-         * @option options.up {Boolean) remove the item when the next {@link
-         *     Tool#onMouseUp} event is fired.
+         * @option options.move {Boolean} remove the item when the next 
+         * {@link Tool#onMouseMove} event is fired.
+         * @option options.drag {Boolean} remove the item when the next
+         * {@link Tool#onMouseDrag} event is fired.
+         * @option options.down {Boolean} remove the item when the next
+         * {@link Tool#onMouseDown} event is fired.
+         * @option options.up {Boolean} remove the item when the next 
+         * {@link Tool#onMouseUp} event is fired.
          */
-        removeOn(options: object): void
+        removeOn(options: {move?:Boolean,drag?:Boolean,down?:Boolean,up?:Boolean}): void
 
         /** 
          * Removes the item when the next {@link Tool#onMouseMove} event is fired.
@@ -2633,46 +2690,78 @@ declare namespace paper {
          * @param to - the state at the end of the tweening
          * @param options - the options or the duration
          */
-        tween(from: object, to: object, options: object | number): Tween
+        tween(from: object, to: object, options: {duration?:Number,easing?:Function | String,start?:Boolean} | number): Tween
 
         /** 
          * Tween item to a state.
          * 
          * @see Item#tween(from, to, options)
          * 
+         * @option options.duration {Number} the duration of the tweening
+         * @option [options.easing='linear'] {Function|String} an easing function or the type
+         * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+         * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+         * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+         * 'easeOutQuint' 'easeInOutQuint'}
+         * @option [options.start=true] {Boolean} whether to start tweening automatically
+         * 
          * @param to - the state at the end of the tweening
          * @param options - the options or the duration
          */
-        tween(to: object, options: object | number): Tween
+        tween(to: object, options: {duration?:Number,easing?:Function | String,start?:Boolean} | number): Tween
 
         /** 
          * Tween item.
          * 
          * @see Item#tween(from, to, options)
          * 
+         * @option options.duration {Number} the duration of the tweening
+         * @option [options.easing='linear'] {Function|String} an easing function or the type
+         * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+         * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+         * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+         * 'easeOutQuint' 'easeInOutQuint'}
+         * @option [options.start=true] {Boolean} whether to start tweening automatically
+         * 
          * @param options - the options or the duration
          */
-        tween(options: object | number): Tween
+        tween(options: {duration?:Number,easing?:Function | String,start?:Boolean} | number): Tween
 
         /** 
          * Tween item to a state.
          * 
          * @see Item#tween(to, options)
          * 
+         * @option options.duration {Number} the duration of the tweening
+         * @option [options.easing='linear'] {Function|String} an easing function or the type
+         * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+         * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+         * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+         * 'easeOutQuint' 'easeInOutQuint'}
+         * @option [options.start=true] {Boolean} whether to start tweening automatically
+         * 
          * @param to - the state at the end of the tweening
          * @param options - the options or the duration
          */
-        tweenTo(to: object, options: object | number): Tween
+        tweenTo(to: object, options: {duration?:Number,easing?:Function | String,start?:Boolean} | number): Tween
 
         /** 
          * Tween item from a state to its state before the tweening.
          * 
          * @see Item#tween(from, to, options)
          * 
+         * @option options.duration {Number} the duration of the tweening
+         * @option [options.easing='linear'] {Function|String} an easing function or the type
+         * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+         * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+         * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+         * 'easeOutQuint' 'easeInOutQuint'}
+         * @option [options.start=true] {Boolean} whether to start tweening automatically
+         * 
          * @param from - the state at the start of the tweening
          * @param options - the options or the duration
          */
-        tweenFrom(from: object, options: object | number): Tween
+        tweenFrom(from: object, options: {duration?:Number,easing?:Function | String,start?:Boolean} | number): Tween
 
     }
 
@@ -3346,7 +3435,7 @@ declare namespace paper {
          * @param code - the PaperScript code
          * @param options - the compilation options
          */
-        execute(code: string, options?: object): void
+        execute(code: string, options?: {url?:String,source?:String}): void
 
         /** 
          * Injects the paper scope into any other given scope. Can be used for
@@ -3402,7 +3491,7 @@ declare namespace paper {
          * @return an object holding the compiled PaperScript translated
          *     into JavaScript code along with source-maps and other information.
          */
-        static compile(code: string, options?: object): object
+        static compile(code: string, options?: {url?:String,source?:String}): object
 
         /** 
          * Compiles the PaperScript code into a compiled function and executes it.
@@ -3422,7 +3511,7 @@ declare namespace paper {
          * 
          * @return the exports defined in the executed code
          */
-        static execute(code: string, scope: PaperScope, options?: object): object
+        static execute(code: string, scope: PaperScope, options?: {url?:String,source?:String}): object
 
         /** 
          * Loads, compiles and executes PaperScript code in the HTML document. Note
@@ -3668,7 +3757,7 @@ declare namespace paper {
          * 
          * @return the reduced path
          */
-        reduce(options: any): Path
+        reduce(options: object): Path
 
         /** 
          * Attempts to create a new shape item with same geometry as this path item,
@@ -4014,7 +4103,7 @@ declare namespace paper {
          * 
          * @return the resulting path item
          */
-        unite(path: PathItem, options?: object): PathItem
+        unite(path: PathItem, options?: {insert?:Boolean}): PathItem
 
         /** 
          * Subtracts the geometry of the specified path from this path's
@@ -4034,7 +4123,7 @@ declare namespace paper {
          * 
          * @return the resulting path item
          */
-        subtract(path: PathItem, options?: object): PathItem
+        subtract(path: PathItem, options?: {insert?:Boolean,trace?:Boolean}): PathItem
 
         /** 
          * Excludes the intersection of the geometry of the specified path with
@@ -4049,7 +4138,7 @@ declare namespace paper {
          * 
          * @return the resulting path item
          */
-        exclude(path: PathItem, options?: object): PathItem
+        exclude(path: PathItem, options?: {insert?:Boolean}): PathItem
 
         /** 
          * Splits the geometry of this path along the geometry of the specified
@@ -4070,7 +4159,7 @@ declare namespace paper {
          * 
          * @return the resulting path item
          */
-        divide(path: PathItem, options?: object): PathItem
+        divide(path: PathItem, options?: {insert?:Boolean,trace?:Boolean}): PathItem
 
         /** 
          * Fixes the orientation of the sub-paths of a compound-path, assuming
@@ -4260,7 +4349,7 @@ declare namespace paper {
          * 
          * @param options - the smoothing options
          */
-        smooth(options?: object): void
+        smooth(options?: {type?:String,factor?:Number,from?:Number | Segment | Curve,to?:Number | Segment | Curve}): void
 
         /** 
          * Fits a sequence of as few curves as possible through the path's anchor
@@ -4299,7 +4388,7 @@ declare namespace paper {
          * 
          * @return the resulting path item
          */
-        intersect(path: PathItem, options?: object): PathItem
+        intersect(path: PathItem, options?: {insert?:Boolean,trace?:Boolean}): PathItem
 
         /** 
          * Compares the geometry of two paths to see if they describe the same
@@ -5148,7 +5237,7 @@ declare namespace paper {
          * 
          * @return the list of matching items contained in the project
          */
-        getItems(options: object | Function): Item[]
+        getItems(options: {recursive?:Boolean,match?:Function,class?:Function,inside?:Rectangle,overlapping?:Rectangle} | Function): Item[]
 
         /** 
          * Fetch the first item contained within the project whose properties
@@ -5161,11 +5250,24 @@ declare namespace paper {
          * 
          * See {@link #getItems} for a selection of illustrated examples.
          * 
+         * @option [options.recursive=true] {Boolean} whether to loop recursively
+         *     through all children, or stop at the current level
+         * @option options.match {Function} a match function to be called for each
+         *     item, allowing the definition of more flexible item checks that are
+         *     not bound to properties. If no other match properties are defined,
+         *     this function can also be passed instead of the `match` object
+         * @option options.class {Function} the constructor function of the item
+         *     type to match against
+         * @option options.inside {Rectangle} the rectangle in which the items need
+         *     to be fully contained
+         * @option options.overlapping {Rectangle} the rectangle with which the
+         *     items need to at least partly overlap
+         * 
          * @param options - the criteria to match against
          * 
          * @return the first item in the project matching the given criteria
          */
-        getItem(options: object | Function): Item
+        getItem(options: {recursive?:Boolean,match?:Function,class?:Function,inside?:Rectangle,overlapping?:Rectangle} | Function): Item
 
         /** 
          * Exports (serializes) the project with all its layers and child items to a
@@ -5180,7 +5282,7 @@ declare namespace paper {
          * 
          * @return the exported JSON data
          */
-        exportJSON(options?: object): string
+        exportJSON(options?: {asString?:Boolean,precision?:Number}): string
 
         /** 
          * Imports (deserializes) the stored JSON data into the project.
@@ -5221,7 +5323,7 @@ declare namespace paper {
          * @return the project converted to an SVG node or a
          * `String` depending on `option.asString` value
          */
-        exportSVG(options?: object): SVGElement | string
+        exportSVG(options?: {bounds?:String | Rectangle,matrix?:Matrix,asString?:Boolean,precision?:Number,matchShapes?:Boolean,embedImages?:Boolean}): SVGElement | string
 
         /** 
          * Converts the provided SVG content into Paper.js items and adds them to
@@ -5252,7 +5354,7 @@ declare namespace paper {
          * @return the newly created Paper.js item containing the converted
          *     SVG content
          */
-        importSVG(svg: SVGElement | string, options?: object): Item
+        importSVG(svg: SVGElement | string, options?: {expandShapes?:Boolean,onLoad?:Function,onError?:Function,insert?:Boolean,applyMatrix?:Boolean}): Item
 
         /** 
          * Performs a hit-test on the items contained within the project at the
@@ -5297,7 +5399,7 @@ declare namespace paper {
          * @return a hit result object that contains more information
          *     about what exactly was hit or `null` if nothing was hit
          */
-        hitTest(point: Point, options?: object): HitResult
+        hitTest(point: Point, options?: {tolerance?:Number,class?:Function,match?:Function,fill?:Boolean,stroke?:Boolean,segments?:Boolean,curves?:Boolean,handles?:Boolean,ends?:Boolean,position?:Boolean,center?:Boolean,bounds?:Boolean,guides?:Boolean,selected?:Boolean}): HitResult
 
     }
 
@@ -5975,7 +6077,7 @@ declare namespace paper {
          * 
          * @param options - the smoothing options
          */
-        smooth(options?: object): void
+        smooth(options?: {type?:String,factor?:Number}): void
 
         /** 
          * Checks if the this is the first segment in the {@link Path#segments}

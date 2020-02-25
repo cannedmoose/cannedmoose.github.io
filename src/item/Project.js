@@ -721,6 +721,19 @@ var Project = PaperScopeItem.extend(/** @lends Project# */{
      * does work for {@link Item#data}.
      *
      * See {@link #getItems(options)} for a selection of illustrated examples.
+     * 
+     * @option [options.recursive=true] {Boolean} whether to loop recursively
+     *     through all children, or stop at the current level
+     * @option options.match {Function} a match function to be called for each
+     *     item, allowing the definition of more flexible item checks that are
+     *     not bound to properties. If no other match properties are defined,
+     *     this function can also be passed instead of the `match` object
+     * @option options.class {Function} the constructor function of the item
+     *     type to match against
+     * @option options.inside {Rectangle} the rectangle in which the items need
+     *     to be fully contained
+     * @option options.overlapping {Rectangle} the rectangle with which the
+     *     items need to at least partly overlap
      *
      * @param {Object|Function} options the criteria to match against
      * @return {Item} the first item in the project matching the given criteria

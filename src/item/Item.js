@@ -182,7 +182,7 @@ new function() { // Injection scope for various item event handlers
                 var value = that[key];
                 // Style#leading is a special case, as its default value is
                 // dependent on the fontSize. Handle this here separately.
-                if (!!alwaysWrite || !Base.equals(value, key === 'leading'
+                if (!!galwaysWrite || !Base.equals(value, key === 'leading'
                         ? fields.fontSize * 1.2 : fields[key])) {
                     props[key] = Base.serialize(value, options,
                             // Do not use compact mode for data
@@ -1602,10 +1602,10 @@ new function() { // Injection scope for various item event handlers
      * Clones the item within the same project and places the copy above the
      * item.
      *
-     * @option [insert=true] specifies whether the copy should be
+     * @option [options.insert=true] {Boolean} specifies whether the copy should be
      *     inserted into the scene graph. When set to `true`, it is inserted
      *     above the original
-     * @option [deep=true] specifies whether the item's children should also be
+     * @option [options.deep=true] {Boolean} specifies whether the item's children should also be
      *     cloned
      *
      * @param {Object} [options={ insert: true, deep: true }]
@@ -1986,6 +1986,38 @@ new function() { // Injection scope for hit-test functions shared with project
      *
      * @name Item#hitTestAll
      * @function
+     * 
+     * @option [options.tolerance={@link PaperScope#settings}.hitTolerance]
+     *     {Number} the tolerance of the hit-test
+     * @option options.class {Function} only hit-test against a specific item
+     *     class, or any of its sub-classes, by providing the constructor
+     *     function against which an `instanceof` check is performed:
+     *     {@values  Group, Layer, Path, CompoundPath, Shape, Raster,
+     *     SymbolItem, PointText, ...}
+     * @option options.match {Function} a match function to be called for each
+     *     found hit result: Return `true` to return the result, `false` to keep
+     *     searching
+     * @option [options.fill=true] {Boolean} hit-test the fill of items
+     * @option [options.stroke=true] {Boolean} hit-test the stroke of path
+     *     items, taking into account the setting of stroke color and width
+     * @option [options.segments=true] {Boolean} hit-test for {@link
+     *     Segment#point} of {@link Path} items
+     * @option options.curves {Boolean} hit-test the curves of path items,
+     *     without taking the stroke color or width into account
+     * @option options.handles {Boolean} hit-test for the handles ({@link
+     *     Segment#handleIn} / {@link Segment#handleOut}) of path segments.
+     * @option options.ends {Boolean} only hit-test for the first or last
+     *     segment points of open path items
+     * @option options.position {Boolean} hit-test the {@link Item#position} of
+     *     of items, which depends on the setting of {@link Item#pivot}
+     * @option options.center {Boolean} hit-test the {@link Rectangle#center} of
+     *     the bounding rectangle of items ({@link Item#bounds})
+     * @option options.bounds {Boolean} hit-test the corners and side-centers of
+     *     the bounding rectangle of items ({@link Item#bounds})
+     * @option options.guides {Boolean} hit-test items that have {@link
+     *     Item#guide} set to `true`
+     * @option options.selected {Boolean} only hit selected items
+     * 
      * @param {Point} point the point where the hit-test should be performed
      *     (in global coordinates system).
      * @param {Object} [options={ fill: true, stroke: true, segments: true,
@@ -2126,6 +2158,19 @@ new function() { // Injection scope for hit-test functions shared with project
      *
      * @name Item#matches
      * @function
+     * 
+     * @option [options.recursive=true] {Boolean} whether to loop recursively
+     *     through all children, or stop at the current level
+     * @option options.match {Function} a match function to be called for each
+     *     item, allowing the definition of more flexible item checks that are
+     *     not bound to properties. If no other match properties are defined,
+     *     this function can also be passed instead of the `match` object
+     * @option options.class {Function} the constructor function of the item
+     *     type to match against
+     * @option options.inside {Rectangle} the rectangle in which the items need
+     *     to be fully contained
+     * @option options.overlapping {Rectangle} the rectangle with which the
+     *     items need to at least partly overlap
      *
      * @param {Object|Function} options the criteria to match against
      * @return {Boolean} {@true if the item matches all the criteria}
@@ -2257,8 +2302,21 @@ new function() { // Injection scope for hit-test functions shared with project
      * does work for {@link Item#data}.
      * See {@link Project#getItems(match)} for a selection of illustrated
      * examples.
+     * 
+     * @option [options.recursive=true] {Boolean} whether to loop recursively
+     *     through all children, or stop at the current level
+     * @option options.match {Function} a match function to be called for each
+     *     item, allowing the definition of more flexible item checks that are
+     *     not bound to properties. If no other match properties are defined,
+     *     this function can also be passed instead of the `options` object
+     * @option options.class {Function} the constructor function of the item type
+     *     to match against
+     * @option options.inside {Rectangle} the rectangle in which the items need to
+     *     be fully contained
+     * @option options.overlapping {Rectangle} the rectangle with which the items
+     *     need to at least partly overlap
      *
-     * @param {Object|Function} match the criteria to match against
+     * @param {Object|Function} options the criteria to match against
      * @return {Item} the first descendant item matching the given criteria
      * @see #getItems(match)
      */
@@ -4569,17 +4627,17 @@ new function() { // Injection scope for hit-test functions shared with project
      * Removes the item when the events specified in the passed options object
      * occur.
      *
-     * @option options.move {Boolean) remove the item when the next {@link
-     *     Tool#onMouseMove} event is fired.
+     * @option options.move {Boolean} remove the item when the next 
+     * {@link Tool#onMouseMove} event is fired.
      *
-     * @option options.drag {Boolena) remove the item when the next {@link
-     *     Tool#onMouseDrag} event is fired.
+     * @option options.drag {Boolean} remove the item when the next
+     * {@link Tool#onMouseDrag} event is fired.
      *
-     * @option options.down {Boolean) remove the item when the next {@link
-     *     Tool#onMouseDown} event is fired.
+     * @option options.down {Boolean} remove the item when the next
+     * {@link Tool#onMouseDown} event is fired.
      *
-     * @option options.up {Boolean) remove the item when the next {@link
-     *     Tool#onMouseUp} event is fired.
+     * @option options.up {Boolean} remove the item when the next 
+     * {@link Tool#onMouseUp} event is fired.
      *
      * @name Item#removeOn
      * @function
@@ -4757,6 +4815,14 @@ new function() { // Injection scope for hit-test functions shared with project
      * Tween item to a state.
      *
      * @name Item#tween
+     * 
+     * @option options.duration {Number} the duration of the tweening
+     * @option [options.easing='linear'] {Function|String} an easing function or the type
+     * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+     * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+     * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+     * 'easeOutQuint' 'easeInOutQuint'}
+     * @option [options.start=true] {Boolean} whether to start tweening automatically
      *
      * @function
      * @param  {Object} to the state at the end of the tweening
@@ -4785,6 +4851,14 @@ new function() { // Injection scope for hit-test functions shared with project
      *
      * @name Item#tween
      *
+     * @option options.duration {Number} the duration of the tweening
+     * @option [options.easing='linear'] {Function|String} an easing function or the type
+     * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+     * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+     * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+     * 'easeOutQuint' 'easeInOutQuint'}
+     * @option [options.start=true] {Boolean} whether to start tweening automatically
+     * 
      * @function
      * @param  {Object|Number} options the options or the duration
      * @return {Tween}
@@ -4843,6 +4917,15 @@ new function() { // Injection scope for hit-test functions shared with project
      * Tween item to a state.
      *
      * @function
+     * 
+     * @option options.duration {Number} the duration of the tweening
+     * @option [options.easing='linear'] {Function|String} an easing function or the type
+     * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+     * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+     * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+     * 'easeOutQuint' 'easeInOutQuint'}
+     * @option [options.start=true] {Boolean} whether to start tweening automatically
+     * 
      * @param {Object} to the state at the end of the tweening
      * @param {Object|Number} options the options or the duration
      * @return {Tween}
@@ -4858,6 +4941,15 @@ new function() { // Injection scope for hit-test functions shared with project
      * Tween item from a state to its state before the tweening.
      *
      * @function
+     * 
+     * @option options.duration {Number} the duration of the tweening
+     * @option [options.easing='linear'] {Function|String} an easing function or the type
+     * of the easing: {@values 'linear' 'easeInQuad' 'easeOutQuad'
+     * 'easeInOutQuad' 'easeInCubic' 'easeOutCubic' 'easeInOutCubic'
+     * 'easeInQuart' 'easeOutQuart' 'easeInOutQuart' 'easeInQuint'
+     * 'easeOutQuint' 'easeInOutQuint'}
+     * @option [options.start=true] {Boolean} whether to start tweening automatically
+     * 
      * @param {Object} from the state at the start of the tweening
      * @param {Object|Number} options the options or the duration
      * @return {Tween}

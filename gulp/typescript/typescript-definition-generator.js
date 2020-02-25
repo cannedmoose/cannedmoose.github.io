@@ -34,12 +34,52 @@ classes.forEach(cls => {
             type: formatType(it.type, { isProperty: true, isSettableProperty: !it.readOnly }),
             static: formatStatic(it.isStatic),
             readOnly: formatReadOnly(it.readOnly),
-            comment: formatComment(it.comment)
+            comment: formatComment(it.comment),
         }));
 
     // Format methods.
     const methods = cls.methods
         .filter(filter)
+        .map(it => {
+            const optionsParam = it._params.find(it => it.name == "options");
+            if (!optionsParam) {
+                return it;
+            }
+
+            const options = it.comment.tags
+                .filter(t => t.title == "option")
+                .map(t => {
+                    let matches = t.desc.match(/^(\w+).(\w+)\s+{([\w|\[\]]+)}/);
+                    if (!matches)
+                        matches = t.desc.match(
+                            /^\[(\w+).(\w+)[^\]]*\]\s+{([\w|\[\]]+)}/
+                        );
+                    if (!matches | (matches.length < 4)) {
+                        return t;
+                    }
+                    return { scope: matches[1], name: matches[2], type: matches[3]};
+                });
+            let scopedOptions = {};
+            options.forEach(it => {
+                if (!scopedOptions[it.scope]) scopedOptions[it.scope] = {};
+                scopedOptions[it.scope][it.name] = it.type;
+            });
+
+            acc = [];
+            Object.keys(scopedOptions).forEach(k => {
+                var acc1 = [];
+                Object.keys(scopedOptions[k]).forEach(name => {
+                    const type = scopedOptions[k][name];
+                    acc1.push(`${name}${k == "options" ? "?" : "" }:${type}`);
+                });
+                acc.push(acc1.join(","));
+            });
+
+            let type = acc.map(s => `{${s}}`).join("|");
+            if(!type) {console.log(it._name); type = "Object"}
+            optionsParam.type = optionsParam.type ? optionsParam.type.replace("Object", type): type;
+            return it;
+        })
         .map(it => {
             const name = formatMethodName(it._name);
             const isStaticConstructor = it.isStatic && it.isConstructor;
@@ -47,19 +87,23 @@ classes.forEach(cls => {
                 name: name,
                 // Constructors don't need return type.
                 type: !it.isConstructor
-                    ? formatType(getMethodReturnType(it), { isMethodReturnType: true })
-                    : '',
+                    ? formatType(getMethodReturnType(it), {
+                          isMethodReturnType: true
+                      })
+                    : "",
                 static: formatStatic(it.isStatic),
                 // This flag is only used below to filter methods.
                 isStaticConstructor: isStaticConstructor,
-                comment: formatComment(it.comment, 'desc', it.isConstructor),
+                comment: formatComment(it.comment, "desc", it.isConstructor),
                 params: it._params
                     ? it._params
-                    // Filter internal parameters (starting with underscore).
-                        .filter(it => !/^_/.test(it.name))
-                        .map(it => formatParameter(it, isStaticConstructor && cls))
-                        .join(', ')
-                    : ''
+                          // Filter internal parameters (starting with underscore).
+                          .filter(it => !/^_/.test(it.name))
+                          .map(it =>
+                              formatParameter(it, isStaticConstructor && cls)
+                          )
+                          .join(", ")
+                    : ""
             };
         })
         .sort(sortMethods);
@@ -161,7 +205,7 @@ function parseType(type, options) {
     // back parsed types.
     const types = type.split('|');
 
-    // Hanle nullable type:
+    // Handle nullable type:
     // - `?Type` => `Type|null`
     // - `?TypeA|TypeB` => `TypeA|TypeB|null`
     // - `?TypeA|?TypeB` => `TypeA|TypeB|null`
