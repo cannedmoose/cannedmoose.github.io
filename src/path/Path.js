@@ -1769,9 +1769,16 @@ var Path = PathItem.extend(/** @lends Path# */{
                     || checkSegmentPoints(segments[numSegments - 1], true))
                 return res;
         } else if (options.segments || options.handles) {
-            for (var i = 0; i < numSegments; i++)
-                if (res = checkSegmentPoints(segments[i]))
-                    return res;
+            // Check all segments and find closest if multiple match.
+            for (var i = 0; i < numSegments; i++) {
+                var segRes = checkSegmentPoints(segments[i]);
+                if (segRes) {
+                    if (!res || segRes.point.getDistance(point) < res.point.getDistance(point)) {
+                        res = segRes;
+                    }
+                }
+            }
+            if (res) return res;
         }
         // If we're querying for stroke, perform that before fill
         if (strokeRadius !== null) {

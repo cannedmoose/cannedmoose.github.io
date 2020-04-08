@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Mon Feb 24 15:00:03 2020 +1100
+ * Date: Tue Feb 25 14:06:57 2020 +1100
  *
  ***
  *
@@ -3250,7 +3250,7 @@ new function() {
 		function serialize(fields, alwaysWrite) {
 			for (var key in fields) {
 				var value = that[key];
-				if (!!galwaysWrite || !Base.equals(value, key === 'leading'
+				if (!!alwaysWrite || !Base.equals(value, key === 'leading'
 						? fields.fontSize * 1.2 : fields[key])) {
 					props[key] = Base.serialize(value, options,
 							key !== 'data', dictionary);
@@ -9214,9 +9214,15 @@ var Path = PathItem.extend({
 					|| checkSegmentPoints(segments[numSegments - 1], true))
 				return res;
 		} else if (options.segments || options.handles) {
-			for (var i = 0; i < numSegments; i++)
-				if (res = checkSegmentPoints(segments[i]))
-					return res;
+			for (var i = 0; i < numSegments; i++) {
+				var segRes = checkSegmentPoints(segments[i]);
+				if (segRes) {
+					if (!res || segRes.point.getDistance(point) < res.point.getDistance(point)) {
+						res = segRes;
+					}
+				}
+			}
+			if (res) return res;
 		}
 		if (strokeRadius !== null) {
 			loc = this.getNearestLocation(point);

@@ -182,7 +182,7 @@ new function() { // Injection scope for various item event handlers
                 var value = that[key];
                 // Style#leading is a special case, as its default value is
                 // dependent on the fontSize. Handle this here separately.
-                if (!!galwaysWrite || !Base.equals(value, key === 'leading'
+                if (!!alwaysWrite || !Base.equals(value, key === 'leading'
                         ? fields.fontSize * 1.2 : fields[key])) {
                     props[key] = Base.serialize(value, options,
                             // Do not use compact mode for data
@@ -2143,7 +2143,7 @@ new function() { // Injection scope for hit-test functions shared with project
     },
 
     _hitTestSelf: function(point, options) {
-        // The default implementation honly handles 'fill' through #_contains()
+        // The default implementation only handles 'fill' through #_contains()
         if (options.fill && this.hasFill() && this._contains(point))
             return new HitResult('fill', this);
     },
