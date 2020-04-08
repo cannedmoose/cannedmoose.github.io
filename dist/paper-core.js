@@ -9,7 +9,7 @@
  *
  * All rights reserved.
  *
- * Date: Tue Feb 25 14:06:57 2020 +1100
+ * Date: Wed Apr 8 15:26:38 2020 +1000
  *
  ***
  *
@@ -14374,6 +14374,7 @@ var CanvasProvider = {
 			canvas.getContext('2d').restore();
 			this.canvases.push(canvas);
 		}
+		console.log(this.canvases.length);
 	}
 };
 
