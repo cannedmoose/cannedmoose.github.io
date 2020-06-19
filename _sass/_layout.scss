@@ -128,7 +128,9 @@ section {
   box-sizing: border-box;
   height: $spacing-unit * 8;
   width: 100%;
-  background-color: lighten($brand-color, 10%);
+  //background-color: lighten($brand-color, 10%);
+  border: 10px solid lighten($brand-color, 10%);
+  //border-radius: 5px;
   display: flex;
   flex-direction: row;
   margin-bottom: $spacing-unit *.5;
@@ -148,7 +150,7 @@ section {
 
 .portfolio:hover {
   text-decoration: none;
-  background-color: lighten($brand-color, 15%);
+  //background-color: lighten($brand-color, 15%);
 }
 
 .portfolio:hover h5 {
