@@ -106,6 +106,10 @@ section {
   margin-right: $spacing-unit;
 }
 
+.service-image {
+  max-width: $spacing-unit * 8;
+}
+
 .service-image svg {
   width: 100%;
   height: auto;
@@ -122,6 +126,8 @@ section {
   flex-direction: row;
   margin-bottom: $spacing-unit *.5;
   overflow: hidden;
+  cursor: pointer;
+  transition: all .5s;
 
   @include media-query($on-palm) {
     height: $spacing-unit * 12;
@@ -129,11 +135,24 @@ section {
 
 }
 
-.portfolio:hover div:last-child {
+.portfolio:hover .portfolio-image {
   bottom: 0;
 }
 
-.portfolio div:first-child  {
+.portfolio:hover {
+  text-decoration: none;
+  background-color: lighten($brand-color, 15%);
+}
+
+.portfolio:hover h5 {
+  text-decoration: underline;
+}
+
+.portfolio > div:first-child  {
+  margin-left: $spacing-unit;
+}
+
+.portfolio-text  {
   flex: 2;
   margin-left: $spacing-unit;
   margin-top: $spacing-unit;
@@ -142,7 +161,7 @@ section {
   }
 }
 
-.portfolio div:last-child  {
+.portfolio-image  {
   margin-top: auto;
   width: $spacing-unit * 4;
   margin-right: $spacing-unit;
@@ -151,7 +170,7 @@ section {
   bottom: -1 * $spacing-unit;
 }
 
-.portfolio div:last-child img {
+.portfolio-image img {
   float: right;
   height: auto;
 }
@@ -162,12 +181,6 @@ section {
   flex-direction: row;
 }
 
-.portfolio-row .portfolio:first-child {
-  display: flex;
-  flex-direction: row;
-  margin-right: $spacing-unit *.5;
-
-}
 
 /* Footer */
 
