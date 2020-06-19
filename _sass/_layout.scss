@@ -100,10 +100,17 @@ section {
   margin-left: $spacing-unit;
   margin-right: $spacing-unit;
   //max-width: 15 * $spacing-unit;
+  @include media-query($on-palm) {
+    margin-left: $spacing-unit / 2;
+    margin-right: $spacing-unit / 2;
+  }
 }
 
 .service div:first-child {
   margin-right: $spacing-unit;
+  @include media-query($on-palm) {
+    margin-right: $spacing-unit / 2;
+  }
 }
 
 .service-image {
