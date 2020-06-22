@@ -126,11 +126,10 @@ section {
 
 .portfolio {
   max-width: $spacing-unit*24;
-  border: 10px solid lighten($brand-color, 10%);
+  border: 7px solid lighten($brand-color, 10%);
   border-radius: 0 20px 0 20px;
   margin-bottom: $spacing-unit *.5;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .portfolio-snippet {
