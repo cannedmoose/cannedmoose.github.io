@@ -43,10 +43,10 @@ body {
 .scroll-down {
   z-index: 1;
   position: absolute;
-  bottom: calc(var(--base-unit) * 4);
-  right: calc(50% - calc(var(--base-unit) * 5));
-  width: calc(var(--base-unit) * 5);
-  height: calc(var(--base-unit) * 5);
+  bottom: $spacing-unit;
+  right: calc(50% - #{$spacing-unit * 1.5 / 2});
+  width: $spacing-unit * 1.5;
+  height: $spacing-unit * 1.5;
   transition: all 0.35s;
 }
 
@@ -125,39 +125,48 @@ section {
 /* PORTFOLIO **/
 
 .portfolio {
-  box-sizing: border-box;
-  height: $spacing-unit * 8;
-  width: 100%;
-  //background-color: lighten($brand-color, 10%);
+  max-width: $spacing-unit*24;
   border: 10px solid lighten($brand-color, 10%);
-  //border-radius: 5px;
-  display: flex;
-  flex-direction: row;
   margin-bottom: $spacing-unit *.5;
   overflow: hidden;
+}
+
+.portfolio-snippet {
+  box-sizing: border-box;
+  height: $spacing-unit * 6;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
   transition: all .5s;
 
   @include media-query($on-palm) {
-    height: $spacing-unit * 12;
+    height: $spacing-unit * 6;
   }
 
 }
 
-.portfolio:hover .portfolio-image {
+.portfolio-snippet:hover .portfolio-image {
   bottom: 0;
 }
 
-.portfolio:hover {
-  text-decoration: none;
-  //background-color: lighten($brand-color, 15%);
-}
+.portfolio-snippet {
+  cursor: pointer;
+  transition: all 1s;
+} 
 
-.portfolio:hover h5 {
+.portfolio-snippet:hover h5 {
+  opacity: 1;
   text-decoration: underline;
 }
 
-.portfolio > div:first-child  {
+.portfolio-snippet h5 {
+
+  transition: all .5s;
+  opacity: 0;
+}
+
+.portfolio-snippet > div:first-child  {
   margin-left: $spacing-unit;
 }
 
@@ -168,6 +177,9 @@ section {
   @include media-query($on-palm) {
     flex: 1;
   }
+}
+
+.portfolio-text {
 }
 
 .portfolio-image  {
@@ -183,13 +195,6 @@ section {
   float: right;
   height: auto;
 }
-
-
-.portfolio-row {
-  display: flex;
-  flex-direction: row;
-}
-
 
 /* Footer */
 

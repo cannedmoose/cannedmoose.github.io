@@ -18,50 +18,7 @@
     </label>
 
     <div class="trigger">
-      <a class="page-link" href="/#about">About</a>
-      <a class="page-link" href="/#services">Services</a>
-      <a class="page-link" href="/#portfolio">Portfolio</a>
-      <a class="page-link" href="/#contact">Contact</a>
+      <a class="page-link" href="/#about">About</a><a class="page-link" href="/#services">Services</a><a class="page-link" href="/#portfolio">Portfolio</a><a class="page-link" href="/#contact">Contact</a>
     </div>
   </nav>
 </div>
-<script>
-  let ticking = false;
-  window.addEventListener('scroll', function (e) {
-
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        let logo = document.querySelector(".navbar-logo");
-        let scrollDown = document.querySelector(".scroll-down");
-        let hero = document.querySelector(".hero");
-        let sections = document.querySelector(".sections");
-        let s = false;
-        if (window.scrollY > 0 && !logo.style.width) {
-          logo.style.width = "40px";
-          logo.style.height = "40px";
-          scrollDown.style.opacity = 0;
-          hero.style.opacity = 0;
-          sections.style.opacity = 1;
-          s = true;
-        } else if (window.scrollY <= 0) {
-          logo.style.width = "";
-          logo.style.height = "";
-          scrollDown.style.opacity = 1;
-          hero.style.opacity = 1;
-          sections.style.opacity = 0;
-          s = true;
-        } else {
-          ticking = false;
-        }
-
-        if (s) {
-          logo.addEventListener("transitionend", () => {
-            ticking = false;
-          }, { once: true });
-        }
-      });
-
-      ticking = true;
-    }
-  });
-</script>
