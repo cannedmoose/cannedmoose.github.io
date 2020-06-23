@@ -99,6 +99,7 @@ section {
   margin-bottom: $spacing-unit;
   margin-left: $spacing-unit;
   margin-right: $spacing-unit;
+  cursor: default;
   //max-width: 15 * $spacing-unit;
   @include media-query($on-palm) {
     margin-left: $spacing-unit / 2;
@@ -114,12 +115,55 @@ section {
 }
 
 .service-image {
-  max-width: $spacing-unit * 8;
+  //max-width: $spacing-unit * 8;
 }
 
 .service-image svg {
   width: 100%;
   height: auto;
+}
+
+.service:hover .hoverglass {
+  transform: scale(.8);
+}
+
+.hoverglass {
+  transform: scale(.9);
+  transition: all .5s;
+}
+
+.service:hover .hoverscreen {
+  opacity: 0;
+}
+
+.hoverscreen {
+  transition: all .5s;
+}
+
+.service:hover .hoverbox {
+  transform: translate(-40px, 0px);
+}
+
+.hoverbox {
+  transform: translate(-40px, 127px);
+  transition: all .5s;
+}
+
+.service:hover .hovercircle {
+  transform: scale(1.05);
+}
+
+.hovercircle {
+  transform: scale(0);
+  transition: all .5s;
+}
+
+.service:hover .hoverlines {
+  opacity: 1;
+}
+.hoverlines {
+  opacity: 0;
+  transition: all .5s;
 }
 
 /* PORTFOLIO **/
