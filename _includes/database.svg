@@ -61,7 +61,7 @@
     <path d="M787,374a10,10,0,1,1,10-10A10.01146,10.01146,0,0,1,787,374Zm0-18a8,8,0,1,0,8,8A8.00917,8.00917,0,0,0,787,356Z" transform="translate(-115 -52)" fill="#6c63ff"/>
     <path d="M855,345a10,10,0,1,1,10-10A10.01146,10.01146,0,0,1,855,345Z" transform="translate(-115 -52)" fill="#6c63ff"/>
     <path d="M753,340a10,10,0,1,1,10-10A10.01146,10.01146,0,0,1,753,340Z" transform="translate(-115 -52)" fill="#6c63ff"/>
-    <g class="hoverlines">
+    <g class="hoverlines hovers">
         <polygon points="918 288.017 738.983 285 739.017 283 916 285.983 916 200 918 200 918 288.017" fill="#2f2e41"/>
         <polygon points="638.923 278.386 637.077 277.614 731.334 52 882 52 882 54 732.666 54 638.923 278.386" fill="#2f2e41"/>
         <polygon points="503 363 52 363 52 254 54 254 54 361 503 361 503 363" fill="#2f2e41"/>
@@ -69,31 +69,31 @@
         <polygon points="299 666 100 666 100 664 297 664 297 481 299 481 299 666" fill="#2f2e41"/>
     </g>
     <g transform="translate(917, 200)">
-        <g class="hovercircle">
+        <g class="hovercircle hovers">
             <circle cx="0" cy="0" r="53" fill="#ccc" opacity="0.3"/>
             <circle cx="0" cy="0" r="30" fill="#6c63ff"/>
         </g>
     </g>
     <g transform="translate(882, 53)">
-        <g class="hovercircle">
+        <g class="hovercircle hovers">
             <circle r="53" fill="#ccc" opacity="0.3"/>
             <circle r="30" fill="#6c63ff"/>
         </g>
     </g>
     <g transform="translate(53, 253)">
-        <g class="hovercircle">
+        <g class="hovercircle hovers">
             <circle r="53" fill="#ccc" opacity="0.3"/>
             <circle r="30" fill="#6c63ff"/>
         </g>
     </g>
     <g transform="translate(100, 665)">
-        <g class="hovercircle">
+        <g class="hovercircle hovers">
             <circle r="53" fill="#ccc" opacity="0.3"/>
             <circle r="30" fill="#6c63ff"/>
         </g>
     </g>
     <g transform="translate(172, 100)">
-        <g class="hovercircle">
+        <g class="hovercircle hovers">
             <circle r="53" fill="#ccc" opacity="0.3"/>
             <circle r="30" fill="#6c63ff"/>
         </g>

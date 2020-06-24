@@ -29,7 +29,7 @@
     <rect x="739.5" y="695.28749" width="49" height="23" transform="translate(-113.84749 -178.51901) rotate(3.73411)" fill="#fff"/>
     <rect x="751" y="702.78749" width="26" height="8" transform="translate(-113.84749 -178.51901) rotate(3.73411)" fill="#6c63ff"/>
     <path transform="translate(-161.5 -130.26291)" fill="#ffb8b8"/>
-    <g class="hoverbox">
+    <g class="hoverbox hovers">
         <polygon points="877 483.618 796.578 500.079 794.745 499.892 724.071 492.759 724.071 403.196 810.587 388.569 873.346 395.888 873.369 396.285 873.369 396.472 877 483.618" fill="#e6e6e6"/>
         <polygon points="877 483.618 796.578 500.079 794.745 499.892 794.745 408.076 873.369 396.285 877 483.618" opacity="0.1" style="isolation:isolate"/>
         <polygon points="873.369 396.472 873.346 396.495 794.745 408.076 724.071 403.196 810.587 388.569 873.346 395.888 873.369 396.285 873.369 396.472" opacity="0.05" style="isolation:isolate"/>

@@ -3,6 +3,7 @@ layout: default
 ---
 <script>
   let ticking = false;
+  // FOR MAIN MENU
   window.addEventListener('scroll', function (e) {
     if (!ticking) {
       const logo = document.querySelector(".navbar-logo");
@@ -34,6 +35,20 @@ layout: default
       }
     }
   });
+
+  // FOR SCROLL EFFECTS
+  window.addEventListener('scroll', function (e) {
+    const sections = document.querySelector(".sections");
+    const shouldReset = sections.style.opacity != 1;
+    document.querySelectorAll(".service").forEach((service) => {
+      const rect  = service.getBoundingClientRect();
+      const shouldNotHover = shouldReset || (rect.top + rect.height/5 > window.innerHeight*.5);
+      service.querySelectorAll(".hovers").forEach((h) => {
+        if (shouldNotHover) h.classList.remove("hover");
+        else h.classList.add("hover");
+      });
+    });
+  });
 </script>
 
 <div id="hero" class="hero">
@@ -48,19 +63,6 @@ layout: default
 </div>
 
 <div class="sections">
-  <div id="about" class="anchor"></div>
-  <section>
-    <h2>About</h2>
-    <p>Exeter Web Services is a Southern Highlands based consultant specalising
-      in websites and online tech.
-      With a passion for technology and over a decade of industry experience you
-      can be sure we will get the job done right the first time. </p>
-    <p>As a new agency we are offering free first consultations for Southern
-      Highlands businessess. Whether you have a site that needs a few tweaks or
-      the idea for a new app
-      you can get in <a href="#contact">contact</a> to set up a meeting.</p>
-  </section>
-
   <div id="services" class="anchor"></div>
   <h2>Services</h2>
   <section class="services">
@@ -108,6 +110,19 @@ layout: default
         {%- include database.svg -%}
       </div>
     </div>
+  </section>
+
+  <div id="about" class="anchor"></div>
+  <section>
+    <h2>About</h2>
+    <p>Exeter Web Services is a Southern Highlands based consultant specalising
+      in websites and online tech.
+      With a passion for technology and over a decade of industry experience you
+      can be sure we will get the job done right the first time. </p>
+    <p>As a new agency we are offering free first consultations for Southern
+      Highlands businessess. Whether you have a site that needs a few tweaks or
+      the idea for a new app
+      you can get in <a href="#contact">contact</a> to set up a meeting.</p>
   </section>
 
   <div id="portfolio" class="anchor"></div>
