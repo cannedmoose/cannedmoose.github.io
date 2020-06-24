@@ -146,7 +146,6 @@ h6 {
   */
 a {
   color: $text-color;
-  text-decoration: none;
   font-weight: $heading-font-weight;
 
   &:visited {
@@ -330,6 +329,7 @@ table {
   }
 
   .page-link {
+    text-decoration: none;
     font-family: $heading-font-family;
     color: $background-color;
     line-height: $base-line-height;
