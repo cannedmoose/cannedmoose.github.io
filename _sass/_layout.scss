@@ -173,6 +173,10 @@ section {
   border-radius: 0 20px 0 20px;
   margin-bottom: $spacing-unit *.5;
   overflow: hidden;
+
+  @include media-query($on-palm) {
+    max-width: 100%;
+  }
 }
 
 .portfolio-snippet {

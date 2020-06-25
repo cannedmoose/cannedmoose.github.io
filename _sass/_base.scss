@@ -315,6 +315,16 @@ table {
   height: 100%;
 }
 
+.navbar-contact {
+  color: $background-color;
+}
+
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .site-nav {
   z-index: 100;
   line-height: $base-line-height * $base-font-size * 2.25;
