@@ -1,7 +1,7 @@
 <svg id="a80234ba-f3f6-42a2-9225-8d803f7486aa" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="877" height="639.47418" viewBox="0 0 877 639.47418">
     <rect x="0.27529" y="0.3655" width="644.72471" height="412.91039" fill="#e6e6e6"/>
     <rect x="18.71104" y="52.15476" width="607.8532" height="336.69331" fill="#fff"/>
-    <rect width="644.72471" height="27.39027" fill="#6c63ff"/>
+    <rect width="644.72471" height="27.39027" class="brand-filled"/>
     <circle cx="20.35424" cy="14.00335" r="5.07657" fill="#fff"/>
     <circle cx="39.62365" cy="14.00335" r="5.07657" fill="#fff"/>
     <circle cx="58.89306" cy="14.00335" r="5.07657" fill="#fff"/>
@@ -22,18 +22,18 @@
     <polygon points="613 612.618 532.578 629.079 530.745 628.892 530.745 537.076 609.369 525.285 613 612.618" opacity="0.1" style="isolation:isolate"/>
     <polygon points="609.369 525.472 609.346 525.495 530.745 537.076 460.071 532.196 546.587 517.569 609.346 524.888 609.369 525.285 609.369 525.472" opacity="0.05" style="isolation:isolate"/>
     <rect x="630.5" y="695.28749" width="49" height="23" transform="translate(-114.0789 -171.42023) rotate(3.73411)" fill="#fff"/>
-    <rect x="642" y="702.78749" width="26" height="8" transform="translate(-114.0789 -171.42023) rotate(3.73411)" fill="#6c63ff"/>
-    <polygon points="722 612.618 641.578 629.079 639.745 628.892 569.071 621.759 569.071 532.196 655.587 517.569 718.346 524.888 718.369 525.285 718.369 525.472 722 612.618" fill="#6c63ff"/>
+    <rect x="642" y="702.78749" width="26" height="8" transform="translate(-114.0789 -171.42023) rotate(3.73411)" class="brand-filled"/>
+    <polygon points="722 612.618 641.578 629.079 639.745 628.892 569.071 621.759 569.071 532.196 655.587 517.569 718.346 524.888 718.369 525.285 718.369 525.472 722 612.618" class="brand-filled"/>
     <polygon points="722 612.618 641.578 629.079 639.745 628.892 639.745 537.076 718.369 525.285 722 612.618" opacity="0.1" style="isolation:isolate"/>
     <polygon points="718.369 525.472 718.346 525.495 639.745 537.076 569.071 532.196 655.587 517.569 718.346 524.888 718.369 525.285 718.369 525.472" opacity="0.05" style="isolation:isolate"/>
     <rect x="739.5" y="695.28749" width="49" height="23" transform="translate(-113.84749 -178.51901) rotate(3.73411)" fill="#fff"/>
-    <rect x="751" y="702.78749" width="26" height="8" transform="translate(-113.84749 -178.51901) rotate(3.73411)" fill="#6c63ff"/>
+    <rect x="751" y="702.78749" width="26" height="8" transform="translate(-113.84749 -178.51901) rotate(3.73411)" class="brand-filled"/>
     <path transform="translate(-161.5 -130.26291)" fill="#ffb8b8"/>
     <g class="hoverbox hovers">
         <polygon points="877 483.618 796.578 500.079 794.745 499.892 724.071 492.759 724.071 403.196 810.587 388.569 873.346 395.888 873.369 396.285 873.369 396.472 877 483.618" fill="#e6e6e6"/>
         <polygon points="877 483.618 796.578 500.079 794.745 499.892 794.745 408.076 873.369 396.285 877 483.618" opacity="0.1" style="isolation:isolate"/>
         <polygon points="873.369 396.472 873.346 396.495 794.745 408.076 724.071 403.196 810.587 388.569 873.346 395.888 873.369 396.285 873.369 396.472" opacity="0.05" style="isolation:isolate"/>
         <rect x="894.5" y="566.28749" width="49" height="23" transform="translate(-121.91974 -188.88747) rotate(3.73411)" fill="#fff"/>
-        <rect x="906" y="573.78749" width="26" height="8" transform="translate(-121.91974 -188.88747) rotate(3.73411)" fill="#6c63ff"/>
+        <rect x="906" y="573.78749" width="26" height="8" transform="translate(-121.91974 -188.88747) rotate(3.73411)" class="brand-filled"/>
     </g>
 </svg>

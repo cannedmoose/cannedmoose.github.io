@@ -15,10 +15,14 @@ $heading-font-weight: normal !default;
 
 $spacing-unit: 30px !default;
 
-$text-color: #353535 !default;
-//$background-color: white !default;
-$background-color: white !default;
+$text-color-variable: #353535 !default;
+$text-colo-variable: var(--text-color) !default;
+
+$background-color-variable: white !default;
+$background-color-variable: var(--background-color) !default;
+
 $brand-color: #6c63ff !default;
+$brand-color-variable: var(--brand-color) !default;
 
 $grey-color: #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
@@ -41,6 +45,20 @@ $midnight: grey !default;
 //     padding-left: $spacing-unit / 2;
 //   }
 // }
+
+:root {
+  --text-color: #{$text-color-variable};
+  --background-color: #{$background-color-variable};
+  --brand-color: #{$brand-color};
+
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.brand-filled {
+  fill: $brand-color-variable;
+}
+
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;

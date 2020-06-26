@@ -2,25 +2,6 @@ body {
   opacity: 1 !important;
 }
 
-:root {
-  --base-unit: 8px;
-  --logo-size: calc(var(--base-unit) * 10);
-  --nav-bar-height: calc(var(--base-unit) * 12);
-  --body-margin: calc(var(--base-unit) * 15);
-
-  --primary-color: $brand-color;
-  --secondary-color: $background-color;
-  --text-color: $text-color;
-  box-sizing: border-box;
-
-  color: var(--text-color);
-
-  scroll-behavior: smooth;
-
-  font-family: Montserrat;
-}
-
-
 
 /** HERO */
 
@@ -74,7 +55,6 @@ body {
   z-index: 2;
   position: relative;
   margin-top: $spacing-unit * 4;
-  //margin-bottom: calc(var(--base-unit) * 30);
   opacity: 0;
   transition: all 0.35s;
 }

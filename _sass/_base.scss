@@ -27,8 +27,8 @@ figure {
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height}
     $base-font-family;
-  color: $text-color;
-  background-color: $background-color;
+  color: $text-color-variable;
+  background-color: $background-color-variable;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
@@ -44,8 +44,8 @@ input,
 textarea {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height}
     $base-font-family;
-  color: $text-color;
-  background-color: $background-color;
+  color: $text-color-variable;
+  background-color: $background-color-variable;
   border: 1px solid grey;
 }
 
@@ -138,22 +138,22 @@ h5,
 h6 {
   font-weight: $heading-font-weight;
   font-family: $heading-font-family;
-  color: $text-color;
+  color: $text-color-variable;
 }
 
 /**
   * Links
   */
 a {
-  color: $text-color;
+  color: $text-color-variable;
   font-weight: $heading-font-weight;
 
   &:visited {
-    color: $text-color;
+    color: $text-color-variable;
   }
 
   &:hover {
-    color: $text-color;
+    color: $text-color-variable;
     text-decoration: underline;
   }
 
@@ -257,37 +257,8 @@ pre {
   }
 }
 
-/**
-  * Tables
-  */
-table {
-  margin-bottom: $spacing-unit;
-  width: 100%;
-  text-align: $table-text-align;
-  color: lighten($text-color, 18%);
-  border-collapse: collapse;
-  border: 1px solid $grey-color-light;
-  tr {
-    &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
-    }
-  }
-  th,
-  td {
-    padding: ($spacing-unit / 3) ($spacing-unit / 2);
-  }
-  th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
-  }
-  td {
-    border: 1px solid $grey-color-light;
-  }
-}
-
 .header {
-  background-color: $brand-color;
+  background-color: $brand-color-variable;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -310,13 +281,13 @@ table {
 }
 
 .navbar-logo svg {
-  fill: $background-color;
+  fill: $background-color-variable;
   width: 100%;
   height: 100%;
 }
 
 .navbar-contact {
-  color: $background-color;
+  color: $background-color-variable;
 }
 
 .navbar-left {
@@ -341,19 +312,19 @@ table {
   .page-link {
     text-decoration: none;
     font-family: $heading-font-family;
-    color: $background-color;
+    color: $background-color-variable;
     line-height: $base-line-height;
     letter-spacing: 2px;
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
       padding-right: 10px;
-      border-right: $background-color 1px solid;
+      border-right: $background-color-variable 1px solid;
     }
 
     &:not(:first-child) {
       padding-left: 10px;
-      border-left: $background-color 1px solid;
+      border-left: $background-color-variable 1px solid;
     }
   }
 
@@ -361,7 +332,7 @@ table {
     position: absolute;
     top: 20px;
     right: $spacing-unit / 2;
-    background-color: $brand-color;
+    background-color: $brand-color-variable;
     text-align: left;
     float: right;
     padding-right: 0px;
@@ -385,7 +356,7 @@ table {
       text-align: center;
 
       > svg {
-        fill: $background-color;
+        fill: $background-color-variable;
       }
     }
 
@@ -405,8 +376,8 @@ table {
 
       padding-right: 10px;
       padding-left: 10px;
-      border-right: $background-color 1px solid;
-      border-left: $background-color 1px solid;
+      border-right: $background-color-variable 1px solid;
+      border-left: $background-color-variable 1px solid;
 
       margin-left: 5px;
       margin-right: 5px;
