@@ -1,0 +1,62 @@
+<style>
+  #colorpicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000000;
+    background-color: rgba(.3, .3, .3, .7);
+    color: white;
+  }
+
+  .hide {
+    display: none;
+  }
+
+</style>
+<div id="colorpicker" class="hide">
+  <div>
+    brand: <input type="color" id="brand-color" />
+  </div>
+  <div>
+    background: <input type="color" id="background-color" />
+  </div>
+  <div>
+    text: <input type="color" id="text-color" />
+  </div>
+</div>
+
+<script>
+  window.addEventListener("load", () => {
+    const computedStyle = getComputedStyle(document.documentElement);
+    const brand = document.querySelector("#brand-color");
+    const bg = document.querySelector("#background-color");
+    const text = document.querySelector("#text-color");
+
+    brand.value = computedStyle.getPropertyValue('--brand-color').trim();
+    bg.value = computedStyle.getPropertyValue('--background-color').trim();
+    text.value = computedStyle.getPropertyValue('--text-color').trim();
+
+    brand.addEventListener("input", () => {
+      document.documentElement.style
+        .setProperty('--brand-color', brand.value);
+    });
+
+    bg.addEventListener("input", () => {
+      document.documentElement.style
+        .setProperty('--background-color', bg.value);
+    });
+
+    text.addEventListener("input", () => {
+      document.documentElement.style
+        .setProperty('--text-color', text.value);
+    });
+  });
+
+  document.addEventListener("keyup", (e) => {
+    if (e.code === "Backquote") {
+      document.querySelector("#colorpicker").classList.toggle("hide");
+    } //else console.log(e.code);
+  });
+</script>

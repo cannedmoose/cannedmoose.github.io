@@ -15,10 +15,10 @@ $heading-font-weight: normal !default;
 
 $spacing-unit: 30px !default;
 
-$text-color-variable: #353535 !default;
-$text-colo-variable: var(--text-color) !default;
+$text-color: #353535 !default;
+$text-color-variable: var(--text-color) !default;
 
-$background-color-variable: white !default;
+$background-color: #FFFFFF !default;
 $background-color-variable: var(--background-color) !default;
 
 $brand-color: #6c63ff !default;
@@ -47,8 +47,8 @@ $midnight: grey !default;
 // }
 
 :root {
-  --text-color: #{$text-color-variable};
-  --background-color: #{$background-color-variable};
+  --text-color: #{$text-color};
+  --background-color: #{$background-color};
   --brand-color: #{$brand-color};
 
   box-sizing: border-box;
