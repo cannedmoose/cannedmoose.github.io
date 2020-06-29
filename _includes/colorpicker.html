@@ -22,6 +22,10 @@
   <div>
     background: <input type="color" id="background-color" />
   </div>
+
+  <div>
+    secondary: <input type="color" id="secondary-color" />
+  </div>
   <div>
     text: <input type="color" id="text-color" />
   </div>
@@ -33,10 +37,12 @@
     const brand = document.querySelector("#brand-color");
     const bg = document.querySelector("#background-color");
     const text = document.querySelector("#text-color");
+    const secondary = document.querySelector("#secondary-color");
 
     brand.value = computedStyle.getPropertyValue('--brand-color').trim();
     bg.value = computedStyle.getPropertyValue('--background-color').trim();
     text.value = computedStyle.getPropertyValue('--text-color').trim();
+    text.value = computedStyle.getPropertyValue('--secondary-color').trim();
 
     brand.addEventListener("input", () => {
       document.documentElement.style
@@ -51,6 +57,11 @@
     text.addEventListener("input", () => {
       document.documentElement.style
         .setProperty('--text-color', text.value);
+    });
+
+    secondary.addEventListener("input", () => {
+      document.documentElement.style
+        .setProperty('--secondary-color', text.value);
     });
   });
 

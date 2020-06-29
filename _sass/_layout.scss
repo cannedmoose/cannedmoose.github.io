@@ -149,7 +149,7 @@ section {
 
 .portfolio {
   max-width: 45%;
-  border: 7px solid lighten($brand-color, 10%);
+  border: 7px solid $brand-color-variable;
   border-radius: 0 20px 0 20px;
   margin-bottom: $spacing-unit *.5;
   overflow: hidden;
@@ -265,7 +265,7 @@ section {
 .footer {
   padding: $spacing-unit;
   min-height: $spacing-unit * 2;
-  background-color: lighten($brand-color, 10%);
+  background-color: $secondary-color-variable;
 }
 
 
