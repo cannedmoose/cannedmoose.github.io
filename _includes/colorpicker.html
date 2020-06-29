@@ -22,12 +22,11 @@
   <div>
     background: <input type="color" id="background-color" />
   </div>
-
-  <div>
-    secondary: <input type="color" id="secondary-color" />
-  </div>
   <div>
     text: <input type="color" id="text-color" />
+  </div>
+  <div>
+    secondary: <input type="color" id="secondary-color" />
   </div>
 </div>
 
@@ -42,7 +41,7 @@
     brand.value = computedStyle.getPropertyValue('--brand-color').trim();
     bg.value = computedStyle.getPropertyValue('--background-color').trim();
     text.value = computedStyle.getPropertyValue('--text-color').trim();
-    text.value = computedStyle.getPropertyValue('--secondary-color').trim();
+    secondary.value = computedStyle.getPropertyValue('--secondary-color').trim();
 
     brand.addEventListener("input", () => {
       document.documentElement.style
@@ -61,7 +60,7 @@
 
     secondary.addEventListener("input", () => {
       document.documentElement.style
-        .setProperty('--secondary-color', text.value);
+        .setProperty('--secondary-color', secondary.value);
     });
   });
 
