@@ -41,8 +41,8 @@ layout: default
     const sections = document.querySelector(".sections");
     const shouldReset = sections.style.opacity != 1;
     document.querySelectorAll(".service").forEach((service) => {
-      const rect  = service.getBoundingClientRect();
-      const shouldNotHover = shouldReset || (rect.top + rect.height/5 > window.innerHeight*.5);
+      const rect = service.getBoundingClientRect();
+      const shouldNotHover = shouldReset || (rect.top + rect.height / 5 > window.innerHeight * .5);
       service.querySelectorAll(".hovers").forEach((h) => {
         if (shouldNotHover) h.classList.remove("hover");
         else h.classList.add("hover");
@@ -144,10 +144,12 @@ layout: default
   </section>
 
   <div id="contact" class="anchor"></div>
-  <section>
+  <section class="contact">
     <h2>Contact</h2>
-    <p> To arrange a consultation please call or email:
-      <h3>Phone: <a href="tel:0452530192">0452530192</a></h3>
-      <h3>Email: <a href="mailto:hello@exeterwebservices.com.au">hello@exeterwebservices.com.au</a></h3>
+    <p> To arrange a consultation please call or email: </p>
+    <p>Phone: <a href="tel:0452530192">0452530192</a> </p>
+    <p>Email: <a
+         href="mailto:hello@exeterwebservices.com.au">hello@exeterwebservices.com.au</a>
+    </p>
   </section>
 </div>

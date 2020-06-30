@@ -159,6 +159,10 @@ section {
   }
 }
 
+.portfolio-snippet:hover {
+  text-decoration: none;
+}
+
 .portfolio-snippet {
   box-sizing: border-box;
   height: $spacing-unit * 6;
@@ -186,11 +190,10 @@ section {
 
 .portfolio-snippet:hover h5 {
   opacity: 1;
-  text-decoration: underline;
+  //text-decoration: underline;
 }
 
 .portfolio-snippet h5 {
-
   transition: all .5s;
   opacity: 0;
 }
@@ -260,12 +263,20 @@ section {
   order: -1;
 }
 
+.contact a {
+  text-decoration: none;
+  font-weight: $heading-font-weight;
+  font-family: $heading-font-family;
+}
+
 /* Footer */
 
 .footer {
   padding: $spacing-unit;
   min-height: $spacing-unit * 2;
   background-color: $secondary-color-variable;
+  color: $background-color-variable;
+  font-size: 0.7em;
 }
 
 
