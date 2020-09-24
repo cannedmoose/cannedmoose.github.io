@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: layouts/default
 ---
 <script>
   let ticking = false;
@@ -58,7 +58,7 @@ layout: default
 
 <div class="scroll-down">
   <a href="#about">
-    {%- include arrowdown.svg -%}
+    {{ 'assets/arrowdown.svg' | encodeSVG }}
   </a>
 </div>
 
@@ -68,7 +68,7 @@ layout: default
   <section class="services">
     <div class="service">
       <div class="service-image">
-        {%- include websearch.svg -%}
+        {{ 'assets/websearch.svg' | encodeSVG }}
       </div>
       <div class="service-description">
         <h3>Website Development</h3>
@@ -79,12 +79,15 @@ layout: default
     </div>
     <div class="service">
       <div class="service-image si1">
-        {%- include shopping.svg -%}
+        {{ 'assets/shopping.svg' | encodeSVG }}
       </div>
       <div class="service-description">
         <h3>eCommerce Solutions</h3>
-        <p>Have an awesome product but don't know how to bring it online? Or want to customize an existing storefront more than a template will allow?
-          We can help set up an online store front that is easy to manage and make sure it stands out.
+        <p>Have an awesome product but don't know how to bring it online? Or
+          want to customize an existing storefront more than a template will
+          allow?
+          We can help set up an online store front that is easy to manage and
+          make sure it stands out.
         </p>
       </div>
     </div>
@@ -95,7 +98,7 @@ layout: default
           offer full frontend and backend development services.</p>
       </div>
       <div class="service-image">
-        {%- include app.svg -%}
+        {{ 'assets/app.svg' | encodeSVG }}
       </div>
     </div>
     <div class="service">
@@ -106,7 +109,7 @@ layout: default
           including MySQL, PostGres, SqlLite and MongoDB. </p>
       </div>
       <div class="service-image">
-        {%- include database.svg -%}
+        {{ 'assets/database.svg' | encodeSVG }}
       </div>
     </div>
   </section>
@@ -127,18 +130,33 @@ layout: default
   <div id="portfolio" class="anchor"></div>
   <section>
     <h2>Portfolio</h2>
-    <div class="portfolio">
-      <a class="portfolio-snippet" href="/elph.html">
-        <div class="portfolio-text">
-          <h3>elph ceramics</h3>
-          <p>Shopify Plugin and Storefront Development.</p>
-          <br />
-          <h5>Click to learn more</h5>
-        </div>
-        <div class="portfolio-image">
-          <img src="assets/Elphimage.png" alt="Elph store">
-        </div>
-      </a>
+    <div class="portfolios">
+      <div class="portfolio">
+        <a class="portfolio-snippet" href="/boroughbox/">
+          <div class="portfolio-text">
+            <h3>The Borough Box</h3>
+            <p>Shopify Storefront Development.</p>
+            <br />
+            <h5>Click to learn more</h5>
+          </div>
+          <div class="portfolio-image">
+            <img src="assets/Elphimage.png" alt="The Borough Box">
+          </div>
+        </a>
+      </div>
+      <div class="portfolio">
+        <a class="portfolio-snippet" href="/elph/">
+          <div class="portfolio-text">
+            <h3>elph ceramics</h3>
+            <p>Shopify Plugin and Storefront Development.</p>
+            <br />
+            <h5>Click to learn more</h5>
+          </div>
+          <div class="portfolio-image">
+            <img src="assets/Elphimage.png" alt="elph Ceramics">
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 

@@ -1,0 +1,26 @@
+{
+  "name": "exeter-web-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf docs/* && npx eleventy",
+    "serve": "npx eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cannedmoose/cannedmoose.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cannedmoose/cannedmoose.github.io/issues"
+  },
+  "homepage": "https://github.com/cannedmoose/cannedmoose.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.9",
+    "postcss-preset-env": "^6.7.0"
+  }
+}

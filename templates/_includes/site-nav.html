@@ -2,16 +2,10 @@
   <div class="navbar-left">
     <div class="navbar-logo">
       <a href="/#">
-        {%- include logo.svg -%}
+        {{"assets/logo.svg" | encodeSVG }}
       </a>
     </div>
-    {%comment%}<div class="navbar-contact">
-      <div>0452530192</div>
-      <div>hello@exeterwebservices.com.au</div>
-    </div>{%endcomment%}
   </div>
-  {%- assign default_paths = site.pages | map: "path" -%}
-  {%- assign page_paths = site.header_pages | default: default_paths -%}
   <nav class="site-nav">
     <input type="checkbox" id="nav-trigger" class="nav-trigger" />
     <label for="nav-trigger">
