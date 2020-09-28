@@ -270,6 +270,7 @@ section {
 
 .featuretext {
   flex: 1;
+  font-size: 1.2em;
 }
 
 @media (--on-palm) {
