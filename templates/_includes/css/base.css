@@ -315,7 +315,7 @@ pre > code {
   .site-nav {
     position: absolute;
     top: 20px;
-    right: var(--spacing-unit) / 2;
+    right: calc(var(--spacing-unit) / 2);
     background-color: var(--brand-color);
     text-align: left;
     float: right;

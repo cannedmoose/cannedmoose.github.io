@@ -16,9 +16,9 @@ module.exports = function encodeFont(file) {
   return `
   @font-face {
     font-family: '${family}';
-    src: url(data:application/font-truetype;charset=utf-8;base64,${Buffer.from(data).toString("base64")}) format('truetype');
     font-weight: ${weight};
     font-style: ${style};
+    src: url(data:application/font-${format};charset=utf-8;base64,${Buffer.from(data).toString("base64")});
   }
   `;
 }
