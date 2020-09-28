@@ -160,14 +160,11 @@ section {
   margin-right: calc(var(--spacing-unit) * 0.5);
   overflow: hidden;
 
-  @include media-query(var(--on-palm)) {
-    max-width: 100%;
-  }
 }
 
 @media (--on-palm) {
   .portfolio {
-    max-width: 100%;
+    max-width: 80%;
   }
 }
 
