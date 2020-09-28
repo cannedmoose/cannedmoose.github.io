@@ -8,6 +8,7 @@ const presetenv = require("postcss-preset-env");
 module.exports = function (eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy({"assets/static": "assets"});
+  eleventyConfig.addPassthroughCopy({"templates/CNAME": "CNAME"});
 
   // Add B64 font encoder
   eleventyConfig.addFilter("encodeFont", require("./config/encode-font"));
