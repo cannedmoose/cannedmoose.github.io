@@ -1,0 +1,55 @@
+backend:
+  name: git-gateway
+
+local_backend:
+  allowed_hosts: ['beeper.local']
+
+media_folder: "src/static/media"
+public_folder: "/static/media"
+
+collections:
+  - label: "Settings"
+    name: "settings"
+    editor:
+      preview: false
+    files:
+      - label: "Navigation"
+        name: "items"
+        file: "src/_data/navigation.yaml"
+        fields:
+          - label: Nav Items
+            name: items
+            widget: list
+            allow_add: false
+            collapsed: false
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+      - label: "Partners"
+        name: "partners"
+        file: "src/_data/partners.yaml"
+        fields:
+          - label: Partner
+            name: partner
+            widget: list
+            collapsed: false
+            fields:
+              - { label: Name, name: title, widget: string }
+              - { label: License, name: license, widget: string }
+              - { label: Email, name: email, widget: string }
+              - { label: Phone, name: phone, widget: string }
+              - { label: Picture, name: picture, widget: image }
+              - { label: Description, name: desc, widget: markdown }
+      - label: "Meta Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        fields:
+          - { label: Logo, name: logo, widget: image }
+          - { label: Name, name: name, widget: string }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Address, name: address, widget: markdown }
+          - { label: Hero, name: hero, widget: image }
+          - { label: "Index", name: "body", widget: "markdown" }
+          - { label: Author, name: author, widget: string }
+          - { label: URL, name: url, widget: string }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="/static/main.css"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+    <title>
+      {{title}}
+    </title>
+    {% if description %}
+      <meta name="description" content="{{description}}"/>
+    {% endif %}
+  </head>
+  <body>
+    {%include "./partials/header.html" %}
+
+    <div class="wrapper">
+      {{ content | safe }}
+    </div>
+
+    {%include "./partials/footer.html" %}
+  </body>
+</html>
