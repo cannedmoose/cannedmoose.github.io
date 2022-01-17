@@ -1,0 +1,29 @@
+services:
+  - title: Website Development
+    picture: /static/media/websearch.svg
+    desc: >-
+      ### Website Development
+
+
+      Whether you need a new site or tweaks to an existing site our in depth knowledge of HTML, CSS and Javascript will get the job done.
+  - title: eCommerce Solutions
+    picture: /static/media/shopping.svg
+    desc: >-
+      ### eCommerce Solutions
+
+
+      Have an awesome product but don't know how to bring it online? Or want to customize an existing storefront more than a template will allow? We can help set up an online store front that is easy to manage and make sure it stands out.
+  - title: App Development
+    desc: >-
+      ### App Development
+
+
+      Need something more complicated to solve a business need? We offer full frontend and backend development services
+    picture: /static/media/app.svg
+  - title: Database Management
+    picture: /static/media/database.svg
+    desc: >-
+      ### Database Management
+
+
+      Whether you need your data exported, imported, backed up or rearranged we have experience with all major database software including MySQL, PostGres, SqlLite and MongoDB.

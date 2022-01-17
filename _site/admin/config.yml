@@ -8,36 +8,33 @@ media_folder: "src/static/media"
 public_folder: "/static/media"
 
 collections:
-  - label: "Settings"
-    name: "settings"
+  - label: "Home"
+    name: "home"
     editor:
       preview: false
     files:
       - label: "Navigation"
-        name: "items"
+        name: "navigation"
         file: "src/_data/navigation.yaml"
         fields:
           - label: Nav Items
             name: items
             widget: list
-            allow_add: false
+            allow_add: true
             collapsed: false
             fields:
               - { label: Title, name: text, widget: string }
               - { label: URL, name: url, widget: string }
-      - label: "Partners"
-        name: "partners"
-        file: "src/_data/partners.yaml"
+      - label: "Services"
+        name: "services"
+        file: "src/_data/services.yaml"
         fields:
-          - label: Partner
-            name: partner
+          - label: Service
+            name: services
             widget: list
             collapsed: false
             fields:
-              - { label: Name, name: title, widget: string }
-              - { label: License, name: license, widget: string }
-              - { label: Email, name: email, widget: string }
-              - { label: Phone, name: phone, widget: string }
+              - { label: Title, name: title, widget: string }
               - { label: Picture, name: picture, widget: image }
               - { label: Description, name: desc, widget: markdown }
       - label: "Meta Settings"

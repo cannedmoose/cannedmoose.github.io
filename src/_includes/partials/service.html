@@ -1,0 +1,8 @@
+<div class="service">
+    <div class="service-image">
+        {{ service.picture | embed | safe }}
+    </div>
+    <div class="service-description">
+        {{service.desc | markdownit | safe}}
+    </div>
+</div>
