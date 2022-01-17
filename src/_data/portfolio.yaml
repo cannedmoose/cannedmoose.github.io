@@ -1,0 +1,47 @@
+portfolio:
+  - desktop: /static/media/afi_desktop.png
+    name: A Fire Inside
+    url: https://afireinside.me/
+    desc: A full website build in WordPress over 3 stages to correspond with film
+      festival and theatre releases.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/boroughbox_desktop.png
+    name: The Borough Box
+    url: https://theboroughbox.com.au/
+    desc: Build of a subscription based wine service in Shopify.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/elphceramics_desktop.png
+    name: elph Ceramics
+    url: https://elphceramics.com/
+    desc: An eCommerce store for botique ceramic homewares.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/saha_desktop.png
+    name: SAHA Sydney
+    url: https://saha.sydney/
+    desc: Website rejuvination for a Syndey based architecture firm.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/tilecloud_desktop.png
+    name: Tile Cloud
+    url: https://tilecloud.com.au/
+    desc: Shopify store management for Australias leading tile brand.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/pelle_desktop.png
+    name: Pelle Shoes
+    url: https://pelleshoes.com.au/
+    desc: Shopify Store build out for a pre-loved luxury goods brand.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/legaltitle_desktop.png
+    name: Legal Title Conveyencers
+    url: https://legaltitle.com.au/
+    desc: A website build out for a sydney based Conveyencer.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/bonmaxie_desktop.png
+    name: Bon Maxie
+    url: https://www.bonmaxie.com.au/
+    desc: Shopify Store Management.
+    mobile: /static/media/afi_desktop.png
+  - desktop: /static/media/dragons_desktop.png
+    name: Dragons Store
+    url: https://shop.dragons.com.au/
+    desc: Shopify store rebuild for Dragons.
+    mobile: /static/media/afi_desktop.png

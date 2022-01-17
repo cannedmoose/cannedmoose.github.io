@@ -75,69 +75,33 @@ path: home
 </div>
 
 <div class="sections">
-  <div id="services" class="anchor"></div>
-  <h2>Services</h2>
-  <section class="services">
 
-    {% for service in services.services %}
-      {% include "./_includes/partials/service.html" %}
-    {% endfor %}
-    
-  </section>
-
-  <div id="about" class="anchor"></div>
   <section>
+    <div id="about" class="anchor"></div>
     <h2>About</h2>
-    <p>Exeter Web Services is a Southern Highlands based consultant specalising
-      in websites and online tech.
-      With a passion for technology and over a decade of industry experience you
-      can be sure we will get the job done right the first time. </p>
-    <p>As a new agency we are offering free first consultations for Southern
-      Highlands businessess. Whether you have a site that needs a few tweaks or
-      the idea for a new app
-      you can get in <a href="#contact">contact</a> to set up a meeting.</p>
+    {{ site.about | markdownit | safe }}
   </section>
-
+  
   <div id="portfolio" class="anchor"></div>
   <section>
     <h2>Portfolio</h2>
-    <div class="portfolios">
-      <div class="portfolio">
-        <a class="portfolio-snippet" href="/boroughbox/">
-          <div class="portfolio-text">
-            <h3>The Borough Box</h3>
-            <p>Shopify Storefront Development.</p>
-            <br />
-            <h5>Click to learn more</h5>
-          </div>
-          <div class="portfolio-image">
-            <img src="assets/boroughboxpreview.png" alt="The Borough Box">
-          </div>
-        </a>
-      </div>
-      <div class="portfolio">
-        <a class="portfolio-snippet" href="/elph/">
-          <div class="portfolio-text">
-            <h3>elph ceramics</h3>
-            <p>Shopify Plugin and Storefront Development.</p>
-            <br />
-            <h5>Click to learn more</h5>
-          </div>
-          <div class="portfolio-image">
-            <img src="assets/elphpreview.png" alt="elph Ceramics">
-          </div>
-        </a>
-      </div>
-    </div>
+    {% include "./_includes/partials/portfolio.html" %}
+  </section>
+
+  <div id="services" class="anchor"></div>
+  <section class="services">
+    <h2>Services</h2>
+    {% for service in services.services %}
+      {% include "./_includes/partials/service.html" %}
+    {% endfor %}
   </section>
 
   <div id="contact" class="anchor"></div>
   <section class="contact">
     <h2>Contact</h2>
     <p> To arrange a consultation please call or email: </p>
-    <p>Phone: <a href="tel:0452530192">0452530192</a> </p>
-    <p>Email: <a href="mailto:hello@exeterwebservices.com.au">hello@exeterwebservices.com.au</a>
-    </p>
+    <p>Phone: <a href="tel:{{site.phone}}">{{site.phone}}</a> </p>
+    <p>Email: <a href="mailto:{{site.email}}}">{{site.email}}</a></p>
   </section>
 
 </div>

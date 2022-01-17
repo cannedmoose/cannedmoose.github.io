@@ -1,0 +1,43 @@
+
+<style>
+
+    .portfolio-grid {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .portfolio-item {
+        min-width: 33.333%;
+        max-width: 33.333%;
+
+        filter: grayscale(.7);
+
+        border: 0px solid #4470a8;
+
+        transition: transform .5s, filter .5s, border-color .5s;
+    }
+
+    .portfolio-item:hover {
+        transform:scale(1.1);
+        z-index: 1;
+
+        filter: grayscale(0);
+    }
+
+    .portfolio-image2 {
+        width: 100%;
+        height: auto;
+    }
+
+
+</style>
+
+<div class="portfolio-grid">
+    {% for portfolio in portfolio.portfolio %}
+        <div class="portfolio-item">
+            <img class="portfolio-image2" src="{{portfolio.desktop}}">
+        </div>
+    {% endfor %}
+</div>
