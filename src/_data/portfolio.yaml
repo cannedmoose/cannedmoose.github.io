@@ -2,46 +2,68 @@ portfolio:
   - desktop: /static/media/afi_desktop.png
     name: A Fire Inside
     url: https://afireinside.me/
-    desc: A full website build in WordPress over 3 stages to correspond with film
-      festival and theatre releases.
-    mobile: /static/media/afi_desktop.png
+    desc: >-
+      The *A Fire Inside* website was built over 3 stages to line up with the
+      pre-release, limited release and full theatrical release of the Film.
+
+
+      The site was built in WordPress with a fully custom theme that also integrated a time-limited onsite book giveaway.
+    mobile: /static/media/afi_mobile.png
   - desktop: /static/media/boroughbox_desktop.png
     name: The Borough Box
     url: https://theboroughbox.com.au/
-    desc: Build of a subscription based wine service in Shopify.
-    mobile: /static/media/afi_desktop.png
+    desc: The Borough Box site was built as a custom Shopify theme given a
+      pre-existing design. New functionality including a wine list, checkout
+      notes and a postcode checker were integrated into the site as well.
+    mobile: /static/media/boroughbox_mobile.png
   - desktop: /static/media/elphceramics_desktop.png
     name: elph Ceramics
     url: https://elphceramics.com/
-    desc: An eCommerce store for botique ceramic homewares.
-    mobile: /static/media/afi_desktop.png
+    desc: The elph Ceramics website was built as a fully custom Shopify theme.
+      Features including a product swatch selector, in stock filter and
+      recommended products feed were integrated.
+    mobile: /static/media/elphceramics_mobile.png
   - desktop: /static/media/saha_desktop.png
     name: SAHA Sydney
     url: https://saha.sydney/
-    desc: Website rejuvination for a Syndey based architecture firm.
-    mobile: /static/media/afi_desktop.png
+    desc: SAHA Sydney site was a website rejuvenation project to an existing Kirby
+      CMS site. The content and overall design remained the same while website
+      speed issues were fixed and the site turned into a single page application
+      with fade effects between pages instead of reloads.
+    mobile: /static/media/saha_mobile.png
   - desktop: /static/media/tilecloud_desktop.png
     name: Tile Cloud
     url: https://tilecloud.com.au/
-    desc: Shopify store management for Australias leading tile brand.
-    mobile: /static/media/afi_desktop.png
+    desc: TileCloud is an ongoing Shopify management project for EWS. New templates
+      and styles and product categories have been added and their tag based
+      filter system has been optimised and extended.
+    mobile: /static/media/tilecloud_mobile.png
   - desktop: /static/media/pelle_desktop.png
     name: Pelle Shoes
     url: https://pelleshoes.com.au/
-    desc: Shopify Store build out for a pre-loved luxury goods brand.
-    mobile: /static/media/afi_desktop.png
+    desc: The Pelle Shoes site was a complete of an existing Shopify store. As well
+      as template customisations the backend store was integrated with Google
+      Shopping and Facebook Marketplace.
+    mobile: /static/media/pelle_mobile.png
   - desktop: /static/media/legaltitle_desktop.png
     name: Legal Title Conveyencers
     url: https://legaltitle.com.au/
-    desc: A website build out for a sydney based Conveyencer.
-    mobile: /static/media/afi_desktop.png
+    desc: Legal Title Conveyancing was a fresh build for EWS. Utilising Netlify CMS
+      for easy content management.
+    mobile: /static/media/legaltitle_mobile.png
   - desktop: /static/media/bonmaxie_desktop.png
     name: Bon Maxie
     url: https://www.bonmaxie.com.au/
-    desc: Shopify Store Management.
-    mobile: /static/media/afi_desktop.png
+    desc: >-
+      TileCloud is an ongoing Shopify management project for EWS. Several theme
+      upgrades have been completed, as well as design and style tweaks.
+
+
+      New functionality was added including product slideshows for collection pages, Desktop/Mobile only menu items, collection banner images and SEO placeholder text.
+    mobile: /static/media/bonmaxie_mobile.png
   - desktop: /static/media/dragons_desktop.png
     name: Dragons Store
     url: https://shop.dragons.com.au/
-    desc: Shopify store rebuild for Dragons.
-    mobile: /static/media/afi_desktop.png
+    desc: The Dragons store was a complete Shopify store re-theme based on a
+      supplied Figma design.
+    mobile: /static/media/dragons_mobile.png

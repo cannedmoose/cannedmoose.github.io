@@ -1,43 +1,73 @@
+<div class="slide-outer">
+    <div class="slide-buttons">
+        <h2 class="prev">«</h2>
+        <h2 class="next">»</h2>
+    </div>
 
-<style>
-
-    .portfolio-grid {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .portfolio-item {
-        min-width: 33.333%;
-        max-width: 33.333%;
-
-        filter: grayscale(.7);
-
-        border: 0px solid #4470a8;
-
-        transition: transform .5s, filter .5s, border-color .5s;
-    }
-
-    .portfolio-item:hover {
-        transform:scale(1.1);
-        z-index: 1;
-
-        filter: grayscale(0);
-    }
-
-    .portfolio-image2 {
-        width: 100%;
-        height: auto;
-    }
-
-
-</style>
-
-<div class="portfolio-grid">
-    {% for portfolio in portfolio.portfolio %}
-        <div class="portfolio-item">
+    <div class="portfolio-grid">
+        {% for portfolio in portfolio.portfolio %}
+        <a class="portfolio-item glightbox" href="#portfolio-lb-{{loop.index}}">
             <img class="portfolio-image2" src="{{portfolio.desktop}}">
-        </div>
-    {% endfor %}
+            <h4 class="portfolio-name">{{portfolio.name}}</h2>
+        </a>
+        {% endfor %}
+    </div>
 </div>
+
+{% for portfolio in portfolio.portfolio %}
+<div class="portfolio-lb" id="portfolio-lb-{{loop.index}}" style="display: none" >
+    <h2 class="portfolio-name">{{portfolio.name}}</h2>
+    <div class="portfolio-content">
+        <div class="portfolio-desc">
+            {{portfolio.desc | markdownit | safe}}
+        </div>
+
+        <div class="portfolio-lb-images">
+            <div class="desktop-lb-image">
+                <img src ="{{portfolio.desktop}}" />
+            </div>
+            <div class="mobile-lb-image">
+                <img src ="{{portfolio.mobile}}" />
+            </div>
+            {{"/static/media/portfolio-app.svg" | embed | safe }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+<script>
+    function createElementFromHTML(htmlString) {
+        var div = document.createElement('div');
+        div.innerHTML = htmlString.trim();
+
+        // Change this to div.childNodes to support multiple top-level nodes.
+        return div.firstChild;
+    }
+
+    window.addEventListener('load', function () {
+        window.tns({
+            "container": ".portfolio-grid",
+            "items": 2,
+            "slideBy": 1,
+            "mouseDrag": true,
+            "swipeAngle": false,
+            "speed": 800,
+            "autoplay": true,
+            "autoplayTimeout": 5000,
+            center: true,
+            nav: false,
+            //autoplayHoverPause: true,
+            gutter: 20,
+            prevButton: ".slide-buttons .prev",
+            nextButton: ".slide-buttons .next"
+
+        });
+
+        const lightbox = GLightbox({
+            touchNavigation: true,
+            loop: true,
+            autoplayVideos: true,
+        });
+    });
+</script>

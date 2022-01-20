@@ -1,9 +1,9 @@
 items:
-  - text: Portfolio
-    url: "/#portfolio"
-  - text: Services
-    url: "/#services"
   - text: About
-    url: "/#about"
+    url: /#about
+  - text: Portfolio
+    url: /#portfolio
+  - text: Services
+    url: /#services
   - text: Contact
-    url: "/#contact"
+    url: /#contact
