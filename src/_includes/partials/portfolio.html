@@ -20,6 +20,10 @@
     <div class="portfolio-content">
         <div class="portfolio-desc">
             {{portfolio.desc | markdownit | safe}}
+
+            <p>
+                <a target="_blank" rel="noreferrer" href="{{portfolio.url}}">See the Site</a>
+            </p>
         </div>
 
         <div class="portfolio-lb-images">
@@ -45,7 +49,7 @@
         return div.firstChild;
     }
 
-    window.addEventListener('load', function () {
+    //window.addEventListener('load', function () {
         window.tns({
             "container": ".portfolio-grid",
             "items": 2,
@@ -69,5 +73,5 @@
             loop: true,
             autoplayVideos: true,
         });
-    });
+    //});
 </script>
