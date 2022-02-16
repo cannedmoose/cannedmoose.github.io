@@ -912,6 +912,18 @@ button[data-action='stop'], button[data-action='start'] {
   margin-top: 1em;
 }
 
+portfolio-lb-images-wrap-outer {
+  width: 100%;
+}
+
+.portfolio-lb-images-wrap {
+  height: 0;
+  overflow: hidden;
+  padding-top: 55.1250759971%;
+  width: 100%;
+  position: relative;
+}
+
 .portfolio-lb-images {
   display: grid;
   grid-template-columns: 6% 68.8% 7% 16.8% auto;
@@ -919,6 +931,12 @@ button[data-action='stop'], button[data-action='start'] {
   
   width: 100%;
   aspect-ratio: 1.814056456;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:100%;
 }
 
 .portfolio-lb-images svg {
@@ -932,6 +950,7 @@ button[data-action='stop'], button[data-action='start'] {
   grid-column: 2 / 4;
   grid-row: 2 / 3;
   overflow:hidden;
+  height: 100%;
 }
 
 .portfolio-lb-images .mobile-lb-image {

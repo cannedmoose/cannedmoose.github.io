@@ -26,14 +26,18 @@
             </p>
         </div>
 
-        <div class="portfolio-lb-images">
-            <div class="desktop-lb-image">
-                <img src ="{{portfolio.desktop}}" />
+        <div class="portfolio-lb-images-wrap-outer">
+        <div class="portfolio-lb-images-wrap">
+            <div class="portfolio-lb-images">
+                <div class="desktop-lb-image">
+                    <img src ="{{portfolio.desktop}}" />
+                </div>
+                <div class="mobile-lb-image">
+                    <img src ="{{portfolio.mobile}}" />
+                </div>
+                {{"/static/media/portfolio-app.svg" | embed | safe }}
             </div>
-            <div class="mobile-lb-image">
-                <img src ="{{portfolio.mobile}}" />
-            </div>
-            {{"/static/media/portfolio-app.svg" | embed | safe }}
+        </div>
         </div>
     </div>
 </div>
